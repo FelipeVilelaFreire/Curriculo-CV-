@@ -73,8 +73,17 @@ export default function Navbar() {
         <div className="relative flex items-center gap-3">
           {/* Language switcher — ícone + códigos ISO */}
           <motion.div
-            animate={showHint ? { scale: [1, 1.07, 1, 1.07, 1] } : {}}
-            transition={{ duration: 1.6, ease: "easeInOut", delay: 0.9 }}
+            animate={showHint ? {
+              scale:     [1, 1.03, 1, 1.03, 1],
+              boxShadow: [
+                "0 0 0px rgba(6,182,212,0)",
+                "0 0 14px rgba(6,182,212,0.28)",
+                "0 0 0px rgba(6,182,212,0)",
+                "0 0 14px rgba(6,182,212,0.28)",
+                "0 0 0px rgba(6,182,212,0)",
+              ],
+            } : {}}
+            transition={{ duration: 2.4, ease: "easeInOut", delay: 1.2 }}
             onAnimationComplete={() => {
               if (showHint) {
                 setShowHint(false);
