@@ -1,0 +1,36 @@
+{
+  "nav": {
+    "title": "Currículum Vitae (CV)",
+    "downloadPDF": "Descargar PDF"
+  },
+  "hero": {
+    "name": "FELIPE VILELA FREIRE",
+    "subtitle": "Desarrollador Fullstack | Estudiante de Sistemas de Información",
+    "badge": "Ciudadano de la UE"
+  },
+  "languages": {
+    "sectionTitle": "Idiomas Hablados",
+    "items": {
+      "german": { "name": "Alemán", "level": "A1.1", "note": "En Aprendizaje" },
+      "english": { "name": "Inglés", "level": "Fluido", "note": "C2" },
+      "spanish": { "name": "Español", "level": "Avanzado", "note": "C1" },
+      "portuguese": { "name": "Portugués", "level": "Nativo", "note": "C2" }
+    }
+  },
+  "timeline": {
+    "sectionTitle": "Experiencia & Educación"
+  },
+  "projects": {
+    "sectionTitle": "Proyectos",
+    "hobbymap": {
+      "title": "HobbyMap",
+      "cta": "Ver App en Vivo"
+    }
+  },
+  "skills": {
+    "sectionTitle": "Habilidades Técnicas"
+  },
+  "hobbies": {
+    "sectionTitle": "Más Allá del Código"
+  }
+}

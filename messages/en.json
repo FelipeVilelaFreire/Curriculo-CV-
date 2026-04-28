@@ -1,0 +1,48 @@
+{
+  "nav": {
+    "title": "Curriculum Vitae (CV)",
+    "downloadPDF": "Download PDF"
+  },
+  "hero": {
+    "name": "FELIPE VILELA FREIRE",
+    "subtitle": "Fullstack Developer | Information Systems Student",
+    "badge": "EU Citizen"
+  },
+  "languages": {
+    "sectionTitle": "Spoken Languages",
+    "items": {
+      "german": { "name": "Deutsch", "level": "A1.1", "note": "In Learning" },
+      "english": { "name": "English", "level": "Fluent", "note": "C2" },
+      "spanish": { "name": "Español", "level": "Advanced", "note": "C1" },
+      "portuguese": { "name": "Português", "level": "Native", "note": "C2" }
+    }
+  },
+  "timeline": {
+    "sectionTitle": "Experience & Education"
+  },
+  "projects": {
+    "sectionTitle": "Projects",
+    "hobbymap": {
+      "title": "HobbyMap",
+      "description": "A social platform connecting people through shared hobbies and activities. Headless architecture with Next.js, Django REST API, and Supabase.",
+      "cta": "View Live App"
+    },
+    "sonho": {
+      "title": "Sonho dos Pés",
+      "description": "Internal Pricing Dashboard — business intelligence tool for pricing management and reporting."
+    },
+    "github": {
+      "title": "GitHub Experiments",
+      "description": "Open-source algorithms, data structures and utility libraries."
+    }
+  },
+  "skills": {
+    "sectionTitle": "Technical Skills"
+  },
+  "hobbies": {
+    "sectionTitle": "Beyond the Code",
+    "subtitle": "Soft skills development through life",
+    "sport": { "label": "Sport", "sublabel": "Physical discipline & resilience" },
+    "music": { "label": "Music", "sublabel": "Creativity & pattern recognition" }
+  }
+}

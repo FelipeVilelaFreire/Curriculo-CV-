@@ -1,0 +1,36 @@
+{
+  "nav": {
+    "title": "Lebenslauf (CV)",
+    "downloadPDF": "PDF Herunterladen"
+  },
+  "hero": {
+    "name": "FELIPE VILELA FREIRE",
+    "subtitle": "Fullstack-Entwickler | Informatikstudent",
+    "badge": "EU-Bürger"
+  },
+  "languages": {
+    "sectionTitle": "Gesprochene Sprachen",
+    "items": {
+      "german": { "name": "Deutsch", "level": "A1.1", "note": "In Ausbildung" },
+      "english": { "name": "Englisch", "level": "Fließend", "note": "C2" },
+      "spanish": { "name": "Spanisch", "level": "Fortgeschritten", "note": "C1" },
+      "portuguese": { "name": "Portugiesisch", "level": "Muttersprache", "note": "C2" }
+    }
+  },
+  "timeline": {
+    "sectionTitle": "Erfahrung & Ausbildung"
+  },
+  "projects": {
+    "sectionTitle": "Projekte",
+    "hobbymap": {
+      "title": "HobbyMap",
+      "cta": "Live-App öffnen"
+    }
+  },
+  "skills": {
+    "sectionTitle": "Technische Fähigkeiten"
+  },
+  "hobbies": {
+    "sectionTitle": "Jenseits des Codes"
+  }
+}

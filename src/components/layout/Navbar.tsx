@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Download, Sun, Moon } from "lucide-react";
 import { useLanguage, type Locale } from "@/lib/LanguageContext";
 import { useTheme } from "@/lib/ThemeContext";
+import PrintModal from "@/components/ui/PrintModal";
 
 const LANGS: { code: Locale; flag: string }[] = [
   { code: "en", flag: "🇬🇧" },
@@ -17,6 +18,7 @@ const HINT_KEY = "cv_lang_hint_seen";
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [showHint, setShowHint] = useState(false);
+  const [printOpen, setPrintOpen] = useState(false);
   const { locale, setLocale, t } = useLanguage();
   const { isDark, toggleTheme } = useTheme();
 
@@ -115,8 +117,9 @@ export default function Navbar() {
 
           <div className="w-px h-5 bg-black/10 dark:bg-white/10 transition-colors duration-300" />
 
-          {/* Download PDF */}
-          <button
+          {/* Download PDF — temporariamente desativado */}
+          {/* <button
+            onClick={() => setPrintOpen(true)}
             className="
               flex items-center gap-2 px-3 sm:px-5 py-2 rounded-xl text-xs font-semibold transition-all duration-300
               border border-cyan-500/50 text-cyan-600
@@ -127,9 +130,11 @@ export default function Navbar() {
           >
             <Download size={13} />
             <span className="hidden sm:inline">{t.nav.downloadPDF}</span>
-          </button>
+          </button> */}
         </div>
       </div>
     </nav>
+
+    {printOpen && <PrintModal onClose={() => setPrintOpen(false)} />}
   );
 }

@@ -1,0 +1,48 @@
+{
+  "nav": {
+    "title": "Currículo Vitae",
+    "downloadPDF": "Baixar PDF"
+  },
+  "hero": {
+    "name": "FELIPE VILELA FREIRE",
+    "subtitle": "Desenvolvedor Fullstack | Estudante de Sistemas de Informação",
+    "badge": "Cidadão da UE"
+  },
+  "languages": {
+    "sectionTitle": "Idiomas Falados",
+    "items": {
+      "german": { "name": "Alemão", "level": "A1.1", "note": "Em aprendizado" },
+      "english": { "name": "Inglês", "level": "Fluente", "note": "C2" },
+      "spanish": { "name": "Espanhol", "level": "Avançado", "note": "C1" },
+      "portuguese": { "name": "Português", "level": "Nativo", "note": "C2" }
+    }
+  },
+  "timeline": {
+    "sectionTitle": "Experiência & Formação"
+  },
+  "projects": {
+    "sectionTitle": "Projetos",
+    "hobbymap": {
+      "title": "HobbyMap",
+      "description": "Plataforma social para conectar pessoas por hobbies e atividades em comum. Arquitetura headless com Next.js, Django REST API e Supabase.",
+      "cta": "Acessar App"
+    },
+    "sonho": {
+      "title": "Sonho dos Pés",
+      "description": "Dashboard interno de precificação — ferramenta de BI para gestão e relatórios de preços."
+    },
+    "github": {
+      "title": "Experimentos GitHub",
+      "description": "Algoritmos open-source, estruturas de dados e bibliotecas utilitárias."
+    }
+  },
+  "skills": {
+    "sectionTitle": "Habilidades Técnicas"
+  },
+  "hobbies": {
+    "sectionTitle": "Além do Código",
+    "subtitle": "Desenvolvimento de soft skills através da vida",
+    "sport": { "label": "Esporte", "sublabel": "Disciplina física & resiliência" },
+    "music": { "label": "Música", "sublabel": "Criatividade & reconhecimento de padrões" }
+  }
+}

@@ -26,3 +26,30 @@ html {
 
 /* Dark mode scrollbar */
 .dark ::-webkit-scrollbar-track { background: #030303; }
+
+/* ── Print styles ─────────────────────────────────────────────────────────── */
+@media print {
+  @page { margin: 12mm 15mm; size: A4 portrait; }
+
+  /* Hide chrome */
+  nav { display: none !important; }
+
+  /* Force all Framer Motion elements visible */
+  * {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+  }
+
+  /* Force light background */
+  html, body { background: #ffffff !important; color: #09090b !important; }
+
+  /* Avoid page breaks inside sections */
+  section { break-inside: avoid; page-break-inside: avoid; }
+
+  /* Remove decorative gradients */
+  [style*="background"] { background: transparent !important; }
+}
