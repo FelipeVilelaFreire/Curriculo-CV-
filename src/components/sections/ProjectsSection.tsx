@@ -364,7 +364,7 @@ export default function ProjectsSection() {
                 {/* Infrastructure */}
                 <div>
                   <SectionLabel>{t.projects.hobbymap.modal.infra}</SectionLabel>
-                  <div className="grid grid-cols-2 gap-2.5">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                     {hobbymap.infra.map(({ name, role }) => (
                       <div
                         key={name}

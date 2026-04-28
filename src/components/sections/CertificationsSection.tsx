@@ -125,7 +125,7 @@ export default function CertificationsSection() {
                 <iframe
                   src="/pdf/TOEFL Candidate Details.pdf"
                   title="TOEFL Certificate"
-                  className="w-full h-full min-h-[65vh]"
+                  className="w-full h-full min-h-[55vh] sm:min-h-[65vh]"
                 />
               </div>
             </motion.div>

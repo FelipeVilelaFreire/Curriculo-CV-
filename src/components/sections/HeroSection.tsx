@@ -11,16 +11,16 @@ export default function HeroSection() {
   const { t } = useLanguage();
 
   return (
-    <section className="relative min-h-[calc(100vh-200px)] flex flex-col items-center justify-center pt-28 pb-6 px-4">
+    <section className="relative min-h-[calc(100vh-200px)] flex flex-col items-center justify-center pt-20 sm:pt-28 pb-6 px-4">
       <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
-        {/* Profile photo placeholder */}
+        {/* Profile photo */}
         <motion.div
           initial={{ opacity: 0, scale: 0.75 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="relative mb-9"
+          className="relative mb-6 sm:mb-9"
         >
-          <div className="w-32 h-32 rounded-full overflow-hidden border border-black/10 dark:border-white/10 transition-colors duration-300">
+          <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden border border-black/10 dark:border-white/10 transition-colors duration-300">
             <Image
               src="/assets/fotos/felipevilelafreire.jfif"
               alt="Felipe Vilela Freire"
@@ -31,8 +31,8 @@ export default function HeroSection() {
               unoptimized
             />
           </div>
-          <div className="absolute inset-[-6px] rounded-full border border-cyan-400/30 dark:border-cyan-400/20 animate-pulse transition-colors duration-300" />
-          <div className="absolute inset-[-12px] rounded-full border border-cyan-400/[0.10] dark:border-cyan-400/[0.07] transition-colors duration-300" />
+          <div className="absolute inset-[-5px] sm:inset-[-6px] rounded-full border border-cyan-400/30 dark:border-cyan-400/20 animate-pulse transition-colors duration-300" />
+          <div className="absolute inset-[-10px] sm:inset-[-12px] rounded-full border border-cyan-400/[0.10] dark:border-cyan-400/[0.07] transition-colors duration-300" />
         </motion.div>
 
         {/* Name */}
@@ -49,7 +49,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.9, duration: 0.55 }}
-          className="text-zinc-500 dark:text-zinc-400 text-base sm:text-lg md:text-xl font-light tracking-wide mt-10 transition-colors duration-300"
+          className="text-zinc-500 dark:text-zinc-400 text-sm sm:text-lg md:text-xl font-light tracking-wide mt-6 sm:mt-10 transition-colors duration-300"
         >
           {t.hero.subtitle}
         </motion.p>
