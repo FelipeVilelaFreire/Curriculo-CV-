@@ -134,7 +134,5 @@ export default function Navbar() {
         </div>
       </div>
     </nav>
-
-    {printOpen && <PrintModal onClose={() => setPrintOpen(false)} />}
   );
 }
