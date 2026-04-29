@@ -1,7 +1,7 @@
 "use client";
 import { useRef, useState } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
-import { FileText, X } from "lucide-react";
+import { FileText, X, ExternalLink } from "lucide-react";
 import GlassCard from "@/components/ui/GlassCard";
 import { useLanguage } from "@/lib/LanguageContext";
 import { toefl } from "@/data/personal";
@@ -90,7 +90,7 @@ export default function CertificationsSection() {
               exit={{ opacity: 0, scale: 0.92, y: 20 }}
               transition={{ duration: 0.32, ease: [0.25, 0.46, 0.45, 0.94] }}
               className="
-                relative z-10 w-full max-w-2xl max-h-[90vh] flex flex-col rounded-2xl overflow-hidden
+                relative z-10 w-full max-w-4xl max-h-[92vh] flex flex-col rounded-2xl overflow-hidden
                 bg-white/95 dark:bg-[#0d0d0d]/95
                 border border-black/[0.08] dark:border-white/[0.14]
                 shadow-[0_24px_80px_rgba(0,0,0,0.22)] dark:shadow-[0_24px_80px_rgba(0,0,0,0.7)]
@@ -98,7 +98,7 @@ export default function CertificationsSection() {
               "
             >
               {/* Header */}
-              <div className="flex items-center justify-between px-4 sm:px-6 py-3 sm:py-4 border-b border-black/[0.06] dark:border-white/[0.08]">
+              <div className="flex items-center justify-between px-4 sm:px-6 py-3 sm:py-4 border-b border-black/[0.06] dark:border-white/[0.08] flex-shrink-0">
                 <div className="flex items-center gap-2.5">
                   <div className="w-8 h-8 rounded-lg bg-cyan-50 border border-cyan-300/50 dark:bg-cyan-500/15 dark:border-cyan-500/30 flex items-center justify-center transition-colors duration-300">
                     <FileText size={14} className="text-cyan-600 dark:text-cyan-400" />
@@ -112,20 +112,68 @@ export default function CertificationsSection() {
                     </p>
                   </div>
                 </div>
-                <button
-                  onClick={() => setOpen(false)}
-                  className="p-1.5 rounded-lg text-zinc-400 hover:text-zinc-700 hover:bg-black/[0.05] dark:text-white/40 dark:hover:text-white dark:hover:bg-white/[0.08] transition-all duration-200"
-                >
-                  <X size={16} />
-                </button>
+                <div className="flex items-center gap-2">
+                  <a
+                    href={toefl.pdfPath}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[11px] font-medium
+                      text-zinc-500 border border-zinc-200 hover:text-zinc-700 hover:border-zinc-300 hover:bg-zinc-50
+                      dark:text-white/40 dark:border-white/10 dark:hover:text-white/70 dark:hover:border-white/20
+                      transition-all duration-200"
+                  >
+                    <ExternalLink size={11} />
+                    Abrir
+                  </a>
+                  <button
+                    onClick={() => setOpen(false)}
+                    className="p-1.5 rounded-lg text-zinc-400 hover:text-zinc-700 hover:bg-black/[0.05] dark:text-white/40 dark:hover:text-white dark:hover:bg-white/[0.08] transition-all duration-200"
+                  >
+                    <X size={16} />
+                  </button>
+                </div>
               </div>
 
-              {/* Body */}
-              <div className="flex-1 overflow-hidden">
+              {/* Body — desktop: iframe / mobile: open-in-tab */}
+              <div className="flex-1 overflow-hidden flex flex-col min-h-0">
+
+                {/* Mobile placeholder */}
+                <div className="flex sm:hidden flex-1 flex-col items-center justify-center gap-5 p-8 text-center">
+                  <div className="w-20 h-20 rounded-2xl bg-cyan-50 border border-cyan-200/80 dark:bg-cyan-500/10 dark:border-cyan-500/20 flex items-center justify-center">
+                    <FileText size={32} className="text-cyan-500 dark:text-cyan-400" />
+                  </div>
+                  <div>
+                    <p className="text-zinc-800 dark:text-white font-semibold text-base mb-1 transition-colors duration-300">
+                      {toefl.name}
+                    </p>
+                    <p className="text-zinc-400 dark:text-zinc-500 text-sm transition-colors duration-300">
+                      {toefl.issuer}
+                    </p>
+                    <p className="text-cyan-600 dark:text-cyan-400 font-semibold text-sm mt-1 transition-colors duration-300">
+                      {toefl.score}
+                    </p>
+                  </div>
+                  <a
+                    href={toefl.pdfPath}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-medium text-sm transition-all duration-300
+                      bg-cyan-50 border border-cyan-300/70 text-cyan-700
+                      hover:bg-cyan-100 hover:border-cyan-400/70
+                      dark:bg-cyan-500/[0.10] dark:border-cyan-500/30 dark:text-cyan-400
+                      dark:hover:bg-cyan-500/[0.18] dark:hover:border-cyan-500/50"
+                  >
+                    <ExternalLink size={14} />
+                    Abrir certificado
+                  </a>
+                </div>
+
+                {/* Desktop iframe */}
                 <iframe
-                  src={toefl.pdfPath}
+                  src={`${toefl.pdfPath}#toolbar=0&navpanes=0&zoom=page-fit`}
                   title="TOEFL Certificate"
-                  className="w-full h-full min-h-[55vh] sm:min-h-[65vh]"
+                  className="hidden sm:block w-full flex-1"
+                  style={{ minHeight: "75vh" }}
                 />
               </div>
             </motion.div>
