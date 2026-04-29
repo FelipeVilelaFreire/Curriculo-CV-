@@ -70,7 +70,7 @@ export interface Messages {
 }
 
 /* ─── Dicionários ─────────────────────────────────────────────────────────── */
-const messages: Record<Locale, Messages> = {
+export const messages: Record<Locale, Messages> = {
   en: {
     nav: { title: "Curriculum Vitae (CV)", downloadPDF: "Download PDF" },
     hero: {

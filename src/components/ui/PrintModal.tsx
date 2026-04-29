@@ -2,8 +2,10 @@
 import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, FileDown } from "lucide-react";
-import { useLanguage, type Locale } from "@/lib/LanguageContext";
+import { X, FileDown, Loader } from "lucide-react";
+import { useLanguage, type Locale, messages } from "@/lib/LanguageContext";
+import { personal } from "@/data/personal";
+import dynamic from "next/dynamic";
 
 const LANG_OPTIONS: { code: Locale; label: string; native: string }[] = [
   { code: "pt", label: "PT", native: "Português" },
@@ -13,28 +15,36 @@ const LANG_OPTIONS: { code: Locale; label: string; native: string }[] = [
 ];
 
 export default function PrintModal({ onClose }: { onClose: () => void }) {
-  const { locale, setLocale } = useLanguage();
+  const { locale } = useLanguage();
   const [selected, setSelected] = useState<Locale>(locale);
-  const [mounted, setMounted] = useState(false);
+  const [loading, setLoading]   = useState(false);
+  const [mounted, setMounted]   = useState(false);
   useEffect(() => setMounted(true), []);
 
-  function handleGenerate() {
-    setLocale(selected);
-    onClose();
+  async function handleGenerate() {
+    setLoading(true);
+    try {
+      const { pdf } = await import("@react-pdf/renderer");
+      const { default: CVDocument } = await import("@/components/pdf/CVDocument");
+      const React = await import("react");
 
-    const root = document.documentElement;
-    const wasDark = root.classList.contains("dark");
-    if (wasDark) root.classList.remove("dark");
+      const photoUrl = `${window.location.origin}${personal.photo}`;
+      const blob = await pdf(
+        React.createElement(CVDocument, { t: messages[selected], photoUrl })
+      ).toBlob();
 
-    const restore = () => {
-      if (wasDark) root.classList.add("dark");
-      window.removeEventListener("afterprint", restore);
-    };
-    window.addEventListener("afterprint", restore);
-
-    requestAnimationFrame(() =>
-      requestAnimationFrame(() => window.print())
-    );
+      const url = URL.createObjectURL(blob);
+      const a   = document.createElement("a");
+      a.href     = url;
+      a.download = `Felipe_Vilela_Freire_CV_${selected.toUpperCase()}.pdf`;
+      a.click();
+      URL.revokeObjectURL(url);
+      onClose();
+    } catch (err) {
+      console.error("PDF generation failed:", err);
+    } finally {
+      setLoading(false);
+    }
   }
 
   if (!mounted) return null;
@@ -119,16 +129,20 @@ export default function PrintModal({ onClose }: { onClose: () => void }) {
           <div className="px-5 pb-5">
             <button
               onClick={handleGenerate}
+              disabled={loading}
               className="
                 w-full flex items-center justify-center gap-2 py-2.5 rounded-xl font-medium text-sm transition-all duration-300
                 bg-cyan-50 border border-cyan-300/70 text-cyan-700
                 hover:bg-cyan-100 hover:border-cyan-400/70
                 dark:bg-cyan-500/[0.10] dark:border-cyan-500/30 dark:text-cyan-400
                 dark:hover:bg-cyan-500/[0.18] dark:hover:border-cyan-500/50
+                disabled:opacity-50 disabled:cursor-not-allowed
               "
             >
-              <FileDown size={14} />
-              Gerar PDF
+              {loading
+                ? <><Loader size={14} className="animate-spin" /> Gerando…</>
+                : <><FileDown size={14} /> Gerar PDF</>
+              }
             </button>
           </div>
         </motion.div>
