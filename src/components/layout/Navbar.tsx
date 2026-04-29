@@ -41,6 +41,8 @@ export default function Navbar() {
   }
 
   return (
+    <>
+    {printOpen && <PrintModal onClose={() => setPrintOpen(false)} />}
     <nav
       className={`fixed top-5 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ${
         scrolled
@@ -65,7 +67,10 @@ export default function Navbar() {
           <span className="hidden sm:block text-sm font-semibold tracking-[0.15em] uppercase text-zinc-700 dark:text-white/75 transition-colors duration-300">
             {t.nav.title}
           </span>
-          <span className="text-[10px] font-bold tracking-widest uppercase px-1.5 py-0.5 rounded-md bg-black/[0.05] dark:bg-white/[0.10] border border-black/[0.07] dark:border-white/[0.18] text-zinc-500 dark:text-white/55 transition-colors duration-300">
+          <span className="sm:hidden text-[10px] font-bold tracking-widest uppercase px-1.5 py-0.5 rounded-md bg-black/[0.05] dark:bg-white/[0.10] border border-black/[0.07] dark:border-white/[0.18] text-zinc-500 dark:text-white/55 transition-colors duration-300">
+            CV
+          </span>
+          <span className="hidden sm:inline text-[10px] font-bold tracking-widest uppercase px-1.5 py-0.5 rounded-md bg-black/[0.05] dark:bg-white/[0.10] border border-black/[0.07] dark:border-white/[0.18] text-zinc-500 dark:text-white/55 transition-colors duration-300">
             {locale.toUpperCase()}
           </span>
         </div>
@@ -126,8 +131,7 @@ export default function Navbar() {
 
           <div className="w-px h-5 bg-black/10 dark:bg-white/10 transition-colors duration-300" />
 
-          {/* Download PDF — temporariamente desativado */}
-          {/* <button
+          <button
             onClick={() => setPrintOpen(true)}
             className="
               flex items-center gap-2 px-3 sm:px-5 py-2 rounded-xl text-xs font-semibold transition-all duration-300
@@ -139,9 +143,10 @@ export default function Navbar() {
           >
             <Download size={13} />
             <span className="hidden sm:inline">{t.nav.downloadPDF}</span>
-          </button> */}
+          </button>
         </div>
       </div>
     </nav>
+    </>
   );
 }

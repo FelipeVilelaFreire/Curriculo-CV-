@@ -123,7 +123,7 @@ export default function CertificationsSection() {
               {/* Body */}
               <div className="flex-1 overflow-hidden">
                 <iframe
-                  src="/pdf/TOEFL Candidate Details.pdf"
+                  src={toefl.pdfPath}
                   title="TOEFL Certificate"
                   className="w-full h-full min-h-[55vh] sm:min-h-[65vh]"
                 />

@@ -2,7 +2,7 @@
 import { useRef, useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { motion, useInView, AnimatePresence } from "framer-motion";
-import { ExternalLink, ArrowUpRight, X, Smartphone, Globe, LayoutDashboard, Server, Package } from "lucide-react";
+import { ExternalLink, ArrowUpRight, X, Smartphone, Globe, LayoutDashboard, Server, Package, Bot } from "lucide-react";
 import Image from "next/image";
 import GlassCard from "@/components/ui/GlassCard";
 import { GitHubIcon } from "@/components/ui/SocialIcons";
@@ -104,8 +104,18 @@ export default function ProjectsSection() {
                   {t.projects.hobbymap.description}
                 </p>
 
-                <div className="flex flex-wrap gap-2 mb-6">
+                <div className="flex flex-wrap gap-2 mb-3">
                   {hobbymap.stack.map((tech) => <Tag key={tech}>{tech}</Tag>)}
+                </div>
+
+                <div className="mb-6">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-semibold
+                    bg-violet-50 border border-violet-200/80 text-violet-600
+                    dark:bg-violet-500/[0.08] dark:border-violet-500/[0.28] dark:text-violet-400
+                    transition-colors duration-300">
+                    <Bot size={11} />
+                    Built with {hobbymap.builtWith}
+                  </span>
                 </div>
 
                 <div className="flex items-center gap-3 flex-wrap">

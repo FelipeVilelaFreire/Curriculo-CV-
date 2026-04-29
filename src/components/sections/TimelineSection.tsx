@@ -4,16 +4,9 @@ import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 import { useLanguage } from "@/lib/LanguageContext";
 import { logos } from "@/assets/logos";
-import { companies } from "@/data/personal";
+import { companies, timelineItems } from "@/data/personal";
 
 type ItemKey = keyof typeof companies;
-
-const ITEMS: { key: ItemKey; current: boolean }[] = [
-  { key: "prognum",      current: true  },
-  { key: "uff",          current: true  },
-  { key: "santo_inacio", current: false },
-  { key: "escola",       current: false },
-];
 
 function LogoImage({ itemKey, alt }: { itemKey: ItemKey; alt: string }) {
   const [error, setError] = useState(false);
@@ -70,7 +63,7 @@ export default function TimelineSection() {
           />
 
           <div className="space-y-12">
-            {ITEMS.map(({ key, current }, i) => {
+            {timelineItems.map(({ key, current }, i) => {
               const item = t.timeline.items[key];
 
               return (

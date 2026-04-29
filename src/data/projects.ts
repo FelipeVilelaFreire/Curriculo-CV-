@@ -1,5 +1,6 @@
 export const hobbymap = {
   url:       "https://hobbymap.com.br",
+  builtWith: "Claude Code",
   languages: ["PT", "EN", "DE"],
   stack: ["Next.js", "React Native", "Django", "PostGIS", "TypeScript", "AWS S3"],
   platforms: [

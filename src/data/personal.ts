@@ -4,6 +4,7 @@ export const personal = {
   email:    "felipe.vilela.freire@gmail.com",
   linkedin: "https://linkedin.com/in/felipevilelafreire786721336",
   github:   "https://github.com/FelipeVilelaFreire",
+  photo:    "/assets/fotos/felipevilelafreire.jfif",
 } as const;
 
 export const companies = {
@@ -14,9 +15,10 @@ export const companies = {
 } as const;
 
 export const toefl = {
-  name:   "TOEFL iBT",
-  issuer: "ETS · Educational Testing Service",
-  score:  "78 / 120",
+  name:    "TOEFL iBT",
+  issuer:  "ETS · Educational Testing Service",
+  score:   "78 / 120",
+  pdfPath: "/pdf/TOEFL Candidate Details.pdf",
 } as const;
 
 export const hobbyTags = {
@@ -26,3 +28,10 @@ export const hobbyTags = {
 } as const;
 
 export const volunteerOrg = "Jovens da Paz" as const;
+
+export const timelineItems: { key: keyof typeof companies; current: boolean }[] = [
+  { key: "prognum",      current: true  },
+  { key: "uff",          current: true  },
+  { key: "santo_inacio", current: false },
+  { key: "escola",       current: false },
+];

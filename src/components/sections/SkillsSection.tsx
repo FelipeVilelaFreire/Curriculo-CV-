@@ -2,47 +2,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { useLanguage } from "@/lib/LanguageContext";
-
-const SKILL_GROUPS = [
-  {
-    label: "Frontend",
-    skills: [
-      { name: "React",         color: "cyan"   },
-      { name: "Next.js",       color: "white"  },
-      { name: "React Native",  color: "cyan"   },
-      { name: "TypeScript",    color: "cyan"   },
-      { name: "Tailwind CSS",  color: "cyan"   },
-      { name: "Framer Motion", color: "purple" },
-      { name: "Recharts",      color: "purple" },
-    ],
-  },
-  {
-    label: "Backend",
-    skills: [
-      { name: "Python",    color: "yellow" },
-      { name: "FastAPI",   color: "green"  },
-      { name: "Django",    color: "green"  },
-      { name: "REST APIs", color: "white"  },
-    ],
-  },
-  {
-    label: "Database",
-    skills: [
-      { name: "PostgreSQL", color: "cyan"  },
-      { name: "PostGIS",    color: "cyan"  },
-      { name: "Supabase",   color: "green" },
-    ],
-  },
-  {
-    label: "Infra & Tools",
-    skills: [
-      { name: "Git",    color: "orange" },
-      { name: "AWS S3", color: "orange" },
-      { name: "Vercel", color: "white"  },
-      { name: "Expo",   color: "white"  },
-    ],
-  },
-] as const;
+import { SKILL_GROUPS } from "@/data/skills";
 
 /* Light + dark variant for each color */
 const colorVariant: Record<string, string> = {
@@ -64,6 +24,9 @@ const colorVariant: Record<string, string> = {
   yellow:
     "border-yellow-300/80 text-yellow-700 bg-yellow-50 hover:bg-yellow-100 hover:border-yellow-400/90 " +
     "dark:border-yellow-500/30 dark:text-yellow-300 dark:bg-yellow-500/[0.05] dark:hover:bg-yellow-500/[0.10] dark:hover:border-yellow-400/50",
+  violet:
+    "border-violet-300/80 text-violet-700 bg-violet-50 hover:bg-violet-100 hover:border-violet-400/90 " +
+    "dark:border-violet-500/35 dark:text-violet-300 dark:bg-violet-500/[0.07] dark:hover:bg-violet-500/[0.13] dark:hover:border-violet-400/55 dark:hover:shadow-[0_0_22px_rgba(139,92,246,0.18)]",
 };
 
 export default function SkillsSection() {

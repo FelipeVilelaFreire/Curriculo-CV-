@@ -22,8 +22,8 @@ export default function HeroSection() {
         >
           <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden border border-black/10 dark:border-white/10 transition-colors duration-300">
             <Image
-              src="/assets/fotos/felipevilelafreire.jfif"
-              alt="Felipe Vilela Freire"
+              src={personal.photo}
+              alt={personal.name}
               width={128}
               height={128}
               className="w-full h-full object-cover"
