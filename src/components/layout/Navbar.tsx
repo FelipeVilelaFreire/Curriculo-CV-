@@ -44,7 +44,7 @@ export default function Navbar() {
     <>
     {printOpen && <PrintModal onClose={() => setPrintOpen(false)} />}
     <nav
-      className={`fixed top-5 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ${
+      className={`fixed top-2 sm:top-5 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ${
         scrolled
           ? "w-[calc(100%-2rem)] max-w-5xl"
           : "w-[calc(100%-4rem)] max-w-4xl"
