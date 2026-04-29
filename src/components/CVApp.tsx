@@ -41,6 +41,7 @@ function ThemedApp() {
           <ProjectsSection />
           <Divider />
           <SkillsSection />
+          <div className="print-page-break" />
           <Divider />
           <HobbiesSection />
         </div>

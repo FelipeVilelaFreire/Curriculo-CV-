@@ -49,6 +49,12 @@ html {
   /* Hide navbar */
   nav { display: none !important; }
 
+  /* Force browser to print background colors and gradients */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
   /* Reset Framer Motion & visual effects */
   * {
     opacity: 1 !important;
