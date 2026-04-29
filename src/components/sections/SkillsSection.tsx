@@ -24,9 +24,15 @@ const colorVariant: Record<string, string> = {
   yellow:
     "border-yellow-300/80 text-yellow-700 bg-yellow-50 hover:bg-yellow-100 hover:border-yellow-400/90 " +
     "dark:border-yellow-500/30 dark:text-yellow-300 dark:bg-yellow-500/[0.05] dark:hover:bg-yellow-500/[0.10] dark:hover:border-yellow-400/50",
-  violet:
-    "border-violet-300/80 text-violet-700 bg-violet-50 hover:bg-violet-100 hover:border-violet-400/90 " +
-    "dark:border-violet-500/35 dark:text-violet-300 dark:bg-violet-500/[0.07] dark:hover:bg-violet-500/[0.13] dark:hover:border-violet-400/55 dark:hover:shadow-[0_0_22px_rgba(139,92,246,0.18)]",
+  amber:
+    "border-amber-400/80 text-amber-700 bg-amber-50 hover:bg-amber-100 hover:border-amber-500/90 " +
+    "dark:border-amber-500/35 dark:text-amber-300 dark:bg-amber-500/[0.07] dark:hover:bg-amber-500/[0.13] dark:hover:border-amber-400/55 dark:hover:shadow-[0_0_22px_rgba(245,158,11,0.22)]",
+  rose:
+    "border-rose-300/80 text-rose-700 bg-rose-50 hover:bg-rose-100 hover:border-rose-400/90 " +
+    "dark:border-rose-500/35 dark:text-rose-300 dark:bg-rose-500/[0.07] dark:hover:bg-rose-500/[0.13] dark:hover:border-rose-400/55 dark:hover:shadow-[0_0_22px_rgba(244,63,94,0.18)]",
+  indigo:
+    "border-indigo-300/80 text-indigo-700 bg-indigo-50 hover:bg-indigo-100 hover:border-indigo-400/90 " +
+    "dark:border-indigo-500/35 dark:text-indigo-300 dark:bg-indigo-500/[0.07] dark:hover:bg-indigo-500/[0.13] dark:hover:border-indigo-400/55 dark:hover:shadow-[0_0_22px_rgba(99,102,241,0.18)]",
 };
 
 export default function SkillsSection() {
