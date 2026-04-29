@@ -49,12 +49,6 @@ html {
   /* Hide navbar */
   nav { display: none !important; }
 
-  /* Force browser to print background colors and gradients */
-  * {
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-  }
-
   /* Reset Framer Motion & visual effects */
   * {
     opacity: 1 !important;
@@ -88,6 +82,12 @@ html {
 
   /* Hide dividers in print */
   .print-divider { display: none !important; }
+
+  /* Volunteer card: subtle neutral background to distinguish without color */
+  .print-volunteer {
+    background: #f4f4f5 !important;
+    border-color: #d4d4d8 !important;
+  }
 
   /* Page break helper — display:none on screen, rendered as zero-height block in print */
   .print-page-break {

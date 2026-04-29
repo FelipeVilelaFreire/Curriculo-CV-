@@ -107,7 +107,7 @@ export default function HobbiesSection() {
             initial={{ opacity: 0, y: 28 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.55, delay: 0.4 }}
-            className="col-span-1 sm:col-span-3 relative overflow-hidden rounded-2xl p-4 sm:p-6
+            className="print-volunteer col-span-1 sm:col-span-3 relative overflow-hidden rounded-2xl p-4 sm:p-6
               bg-gradient-to-br from-amber-50 to-orange-100/70
               border border-amber-200/60
               dark:from-amber-950/40 dark:to-orange-900/25
