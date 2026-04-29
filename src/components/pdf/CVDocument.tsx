@@ -15,7 +15,6 @@ const C = {
   muted:     "#71717a",
   border:    "#e4e4e7",
   bg:        "#f4f4f5",
-  sidebar:   "#f8f9fa",
   white:     "#ffffff",
   green:     "#16a34a",
   greenBg:   "#f0fdf4",
@@ -30,83 +29,113 @@ const s = StyleSheet.create({
     color: C.dark,
   },
 
-  // ── Header ───────────────────────────────────────────────────────
+  // ── Header ─────────────────────────────────────────────────────────
   header: {
     flexDirection: "row",
-    alignItems: "center",
-    paddingHorizontal: 28,
+    alignItems: "flex-start",
+    paddingHorizontal: 26,
     paddingTop: 22,
-    paddingBottom: 16,
+    paddingBottom: 14,
     borderBottomWidth: 0.5,
     borderBottomColor: C.border,
   },
-  photo:      { width: 56, height: 56, borderRadius: 28, marginRight: 18 },
-  hRight:     { flex: 1 },
-  name:       { fontSize: 20, fontFamily: "Helvetica-Bold", color: C.dark, marginBottom: 2 },
-  subtitle:   { fontSize: 8, color: C.muted, marginBottom: 6 },
-  contactRow: { flexDirection: "row", flexWrap: "wrap", marginBottom: 5 },
-  cText:      { fontSize: 6.5, color: C.muted, marginRight: 14 },
-  cLink:      { fontSize: 6.5, color: C.cyan,  marginRight: 14 },
-  badgeRow:   { flexDirection: "row" },
+  photo:    { width: 64, height: 64, borderRadius: 32, marginRight: 18, marginTop: 2 },
+  hRight:   { flex: 1 },
+  name:     { fontSize: 20, fontFamily: "Helvetica-Bold", color: C.dark, marginBottom: 2 },
+  subtitle: { fontSize: 7.5, color: C.muted, marginBottom: 6 },
+  contactRow: { flexDirection: "row", marginBottom: 5 },
+  cText: { fontSize: 6.5, color: C.muted, marginRight: 14 },
+  cLink: { fontSize: 6.5, color: C.cyan,  marginRight: 14 },
+  badgeRow: { flexDirection: "row", marginBottom: 9 },
   badge: {
     fontSize: 6, fontFamily: "Helvetica-Bold", color: C.muted,
     backgroundColor: C.bg, borderRadius: 3,
-    paddingHorizontal: 6, paddingVertical: 2, marginRight: 6,
+    paddingHorizontal: 5, paddingVertical: 2, marginRight: 5,
   },
 
-  // ── Body ─────────────────────────────────────────────────────────
+  // Languages strip — inline row below badges, inside header
+  langStrip: {
+    flexDirection: "row",
+    alignItems: "center",
+    borderTopWidth: 0.3,
+    borderTopColor: C.border,
+    paddingTop: 7,
+  },
+  langStripLabel: {
+    fontSize: 5, fontFamily: "Helvetica-Bold",
+    color: C.cyan, letterSpacing: 1.2, marginRight: 9,
+  },
+  langCell:  { flexDirection: "row", alignItems: "center" },
+  langPipe:  { width: 0.5, height: 9, backgroundColor: C.border, marginHorizontal: 7 },
+  langName:  { fontSize: 7, fontFamily: "Helvetica-Bold", color: C.dark },
+  langLevel: { fontSize: 6.5, color: C.muted, marginLeft: 3 },
+  langNote: {
+    fontSize: 5.5, color: C.cyan,
+    backgroundColor: C.cyanLight,
+    paddingHorizontal: 3, paddingVertical: 1,
+    borderRadius: 2, marginLeft: 5,
+  },
+
+  // ── Body ────────────────────────────────────────────────────────────
   body: { flexDirection: "row", flex: 1 },
 
-  // ── Sidebar ──────────────────────────────────────────────────────
-  sidebar: {
-    width: "34%",
-    backgroundColor: C.sidebar,
-    paddingHorizontal: 14,
+  // Left column
+  colLeft: {
+    width: "49%",
+    paddingLeft: 26,
+    paddingRight: 14,
     paddingTop: 14,
     paddingBottom: 16,
     borderRightWidth: 0.5,
     borderRightColor: C.border,
   },
 
-  // ── Main ─────────────────────────────────────────────────────────
-  main: {
+  // Right column
+  colRight: {
     flex: 1,
-    paddingHorizontal: 16,
+    paddingLeft: 16,
+    paddingRight: 26,
     paddingTop: 14,
     paddingBottom: 16,
   },
 
-  // ── Section titles ────────────────────────────────────────────────
+  // ── Section titles ──────────────────────────────────────────────────
   secTitle: {
-    fontSize: 5.5,
-    fontFamily: "Helvetica-Bold",
-    color: C.cyan,
-    letterSpacing: 1.5,
-    marginBottom: 6,
-    marginTop: 12,
+    fontSize: 5.5, fontFamily: "Helvetica-Bold", color: C.cyan,
+    letterSpacing: 1.5, marginBottom: 7, marginTop: 13,
   },
   secFirst: { marginTop: 0 },
 
-  // ── Languages ────────────────────────────────────────────────────
-  langRow: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    paddingVertical: 4,
-    borderBottomWidth: 0.3,
-    borderBottomColor: C.border,
+  // ── Timeline ────────────────────────────────────────────────────────
+  tlItem:   { marginBottom: 10 },
+  tlTop:    { flexDirection: "row", alignItems: "flex-start" },
+  tlLogo:   { width: 30, height: 30, borderRadius: 5, marginRight: 9, marginTop: 1 },
+  tlLogoBg: {
+    width: 30, height: 30, borderRadius: 5, marginRight: 9, marginTop: 1,
+    backgroundColor: C.bg, alignItems: "center", justifyContent: "center",
   },
-  langName:  { fontSize: 7.5, fontFamily: "Helvetica-Bold", color: C.dark },
-  langRight: { flexDirection: "row", alignItems: "center" },
-  langNote: {
-    fontSize: 5.5, color: C.cyan,
-    backgroundColor: C.cyanLight,
-    paddingHorizontal: 3, paddingVertical: 1.5,
-    borderRadius: 2, marginRight: 5,
+  tlLogoInitials: { fontSize: 7.5, fontFamily: "Helvetica-Bold", color: C.muted },
+  tlBody:    { flex: 1 },
+  tlHeadRow: {
+    flexDirection: "row", justifyContent: "space-between",
+    alignItems: "center", marginBottom: 2,
   },
-  langLevel: { fontSize: 6.5, color: C.muted },
+  tlCompany: { fontSize: 8, fontFamily: "Helvetica-Bold", color: C.dark },
+  tlPeriod:  { fontSize: 6, color: C.muted },
+  tlRole:    { fontSize: 7, color: C.cyan, marginBottom: 2 },
+  tlDesc:    { fontSize: 6.5, color: C.muted, lineHeight: 1.4 },
 
-  // ── Certifications ────────────────────────────────────────────────
+  // ── Hobbies ─────────────────────────────────────────────────────────
+  hobbyItem:   { marginBottom: 5 },
+  hobbyLabel:  { fontSize: 7, fontFamily: "Helvetica-Bold", color: C.dark, marginBottom: 1.5 },
+  hobbyDetail: { fontSize: 6.5, color: C.muted, lineHeight: 1.35 },
+
+  // ── Skills ──────────────────────────────────────────────────────────
+  skillGroup: { marginBottom: 5 },
+  skillLabel: { fontSize: 6.5, fontFamily: "Helvetica-Bold", color: C.dark, marginBottom: 1.5 },
+  skillList:  { fontSize: 6.5, color: C.muted, lineHeight: 1.4 },
+
+  // ── Certifications ──────────────────────────────────────────────────
   certRow:    { flexDirection: "row", justifyContent: "space-between", alignItems: "center" },
   certName:   { fontSize: 7.5, fontFamily: "Helvetica-Bold", color: C.dark },
   certIssuer: { fontSize: 6, color: C.muted, marginTop: 1 },
@@ -116,35 +145,12 @@ const s = StyleSheet.create({
     paddingHorizontal: 5, paddingVertical: 2,
   },
 
-  // ── Skills ────────────────────────────────────────────────────────
-  skillGroup: { marginBottom: 5 },
-  skillLabel: { fontSize: 6.5, fontFamily: "Helvetica-Bold", color: C.dark, marginBottom: 1.5 },
-  skillList:  { fontSize: 6.5, color: C.muted, lineHeight: 1.4 },
-
-  // ── Hobbies ───────────────────────────────────────────────────────
-  hobbyItem:   { marginBottom: 5 },
-  hobbyLabel:  { fontSize: 7, fontFamily: "Helvetica-Bold", color: C.dark, marginBottom: 1.5 },
-  hobbyDetail: { fontSize: 6.5, color: C.muted, lineHeight: 1.35 },
-
-  // ── Timeline ─────────────────────────────────────────────────────
-  tlItem:   { marginBottom: 9 },
-  tlTop:    { flexDirection: "row", alignItems: "flex-start" },
-  tlLogo:   { width: 20, height: 20, borderRadius: 3, marginRight: 8, marginTop: 1 },
-  tlLogoBg: {
-    width: 20, height: 20, borderRadius: 3, marginRight: 8, marginTop: 1,
-    backgroundColor: C.bg, alignItems: "center", justifyContent: "center",
+  // ── Projects ────────────────────────────────────────────────────────
+  projItem:   { marginBottom: 7 },
+  projTop:    {
+    flexDirection: "row", justifyContent: "space-between",
+    alignItems: "center", marginBottom: 1.5,
   },
-  tlLogoInitials: { fontSize: 6, fontFamily: "Helvetica-Bold", color: C.muted },
-  tlBody:    { flex: 1 },
-  tlHeadRow: { flexDirection: "row", justifyContent: "space-between", alignItems: "center", marginBottom: 1 },
-  tlCompany: { fontSize: 8, fontFamily: "Helvetica-Bold", color: C.dark },
-  tlPeriod:  { fontSize: 6, color: C.muted },
-  tlRole:    { fontSize: 7, color: C.cyan, marginBottom: 2 },
-  tlDesc:    { fontSize: 6.5, color: C.muted, lineHeight: 1.4 },
-
-  // ── Projects ─────────────────────────────────────────────────────
-  projItem:   { marginBottom: 8 },
-  projTop:    { flexDirection: "row", justifyContent: "space-between", alignItems: "center", marginBottom: 1 },
   projName:   { fontSize: 8, fontFamily: "Helvetica-Bold", color: C.dark },
   projBadges: { flexDirection: "row" },
   projBadge: {
@@ -195,71 +201,31 @@ export default function CVDocument({ t, photoUrl, baseUrl }: Props) {
               <Text style={s.badge}>{t.hero.age}</Text>
               <Text style={s.badge}>EU  {t.hero.citizenship}</Text>
             </View>
+
+            {/* Languages inline row */}
+            <View style={s.langStrip}>
+              <Text style={s.langStripLabel}>{t.sections.languages.toUpperCase()}</Text>
+              {(["portuguese", "english", "spanish", "german"] as const).map((key, idx) => {
+                const lang = t.langs[key];
+                return (
+                  <View key={key} style={s.langCell}>
+                    {idx > 0 && <View style={s.langPipe} />}
+                    <Text style={s.langName}>{lang.name}</Text>
+                    <Text style={s.langLevel}> · {lang.level}</Text>
+                    {lang.note ? <Text style={s.langNote}>{lang.note}</Text> : null}
+                  </View>
+                );
+              })}
+            </View>
           </View>
         </View>
 
         {/* ── Body ── */}
         <View style={s.body}>
 
-          {/* ── SIDEBAR ── */}
-          <View style={s.sidebar}>
+          {/* LEFT — Experience & Education + Hobbies */}
+          <View style={s.colLeft}>
 
-            {/* Languages */}
-            <Text style={[s.secTitle, s.secFirst]}>{t.sections.languages.toUpperCase()}</Text>
-            {(["portuguese", "english", "spanish", "german"] as const).map(key => {
-              const lang = t.langs[key];
-              return (
-                <View key={key} style={s.langRow}>
-                  <Text style={s.langName}>{lang.name}</Text>
-                  <View style={s.langRight}>
-                    {lang.note ? <Text style={s.langNote}>{lang.note}</Text> : null}
-                    <Text style={s.langLevel}>{lang.level}</Text>
-                  </View>
-                </View>
-              );
-            })}
-
-            {/* Certifications */}
-            <Text style={s.secTitle}>{t.sections.certifications.toUpperCase()}</Text>
-            <View style={s.certRow}>
-              <View>
-                <Text style={s.certName}>{toefl.name}</Text>
-                <Text style={s.certIssuer}>{toefl.issuer}</Text>
-              </View>
-              <Text style={s.certScore}>{toefl.score}</Text>
-            </View>
-
-            {/* Skills */}
-            <Text style={s.secTitle}>{t.sections.skills.toUpperCase()}</Text>
-            {PDF_SKILLS.map(group => (
-              <View key={group.label} style={s.skillGroup}>
-                <Text style={s.skillLabel}>{group.label}</Text>
-                <Text style={s.skillList}>{group.skills.map(sk => sk.name).join(", ")}</Text>
-              </View>
-            ))}
-
-            {/* Hobbies */}
-            <Text style={s.secTitle}>{t.sections.hobbies.toUpperCase()}</Text>
-            <View style={s.hobbyItem}>
-              <Text style={s.hobbyLabel}>{t.hobbies.sport.label}</Text>
-              <Text style={s.hobbyDetail}>{hobbyTags.sport.join(", ")}</Text>
-            </View>
-            <View style={s.hobbyItem}>
-              <Text style={s.hobbyLabel}>{t.hobbies.music.label}</Text>
-              <Text style={s.hobbyDetail}>{hobbyTags.music.join(", ")}</Text>
-            </View>
-            <View style={s.hobbyItem}>
-              <Text style={s.hobbyLabel}>{t.hobbies.volunteer.label}</Text>
-              <Text style={s.hobbyDetail}>{hobbyTags.volunteer[0]}</Text>
-              <Text style={s.hobbyDetail}>{volunteerOrg} · Ipanema, RJ</Text>
-            </View>
-
-          </View>
-
-          {/* ── MAIN ── */}
-          <View style={s.main}>
-
-            {/* Experience & Education */}
             <Text style={[s.secTitle, s.secFirst]}>{t.sections.experience.toUpperCase()}</Text>
 
             {(["prognum", "uff", "santo_inacio", "escola"] as const).map(key => {
@@ -283,17 +249,52 @@ export default function CVDocument({ t, photoUrl, baseUrl }: Props) {
                         <Text style={s.tlPeriod}>{item.period}</Text>
                       </View>
                       <Text style={s.tlRole}>{item.role}</Text>
-                      <Text style={s.tlDesc}>{trunc(item.description, 190)}</Text>
+                      <Text style={s.tlDesc}>{trunc(item.description, 175)}</Text>
                     </View>
                   </View>
                 </View>
               );
             })}
 
-            {/* Projects */}
+            <Text style={s.secTitle}>{t.sections.hobbies.toUpperCase()}</Text>
+            <View style={s.hobbyItem}>
+              <Text style={s.hobbyLabel}>{t.hobbies.sport.label}</Text>
+              <Text style={s.hobbyDetail}>{hobbyTags.sport.join(", ")}</Text>
+            </View>
+            <View style={s.hobbyItem}>
+              <Text style={s.hobbyLabel}>{t.hobbies.music.label}</Text>
+              <Text style={s.hobbyDetail}>{hobbyTags.music.join(", ")}</Text>
+            </View>
+            <View style={s.hobbyItem}>
+              <Text style={s.hobbyLabel}>{t.hobbies.volunteer.label}</Text>
+              <Text style={s.hobbyDetail}>{hobbyTags.volunteer[0]}</Text>
+              <Text style={s.hobbyDetail}>{volunteerOrg} · Ipanema, RJ</Text>
+            </View>
+
+          </View>
+
+          {/* RIGHT — Skills + Certifications + Projects */}
+          <View style={s.colRight}>
+
+            <Text style={[s.secTitle, s.secFirst]}>{t.sections.skills.toUpperCase()}</Text>
+            {PDF_SKILLS.map(group => (
+              <View key={group.label} style={s.skillGroup}>
+                <Text style={s.skillLabel}>{group.label}</Text>
+                <Text style={s.skillList}>{group.skills.map(sk => sk.name).join(", ")}</Text>
+              </View>
+            ))}
+
+            <Text style={s.secTitle}>{t.sections.certifications.toUpperCase()}</Text>
+            <View style={s.certRow}>
+              <View>
+                <Text style={s.certName}>{toefl.name}</Text>
+                <Text style={s.certIssuer}>{toefl.issuer}</Text>
+              </View>
+              <Text style={s.certScore}>{toefl.score}</Text>
+            </View>
+
             <Text style={s.secTitle}>{t.sections.projects.toUpperCase()}</Text>
 
-            {/* HobbyMap */}
             <View style={s.projItem} wrap={false}>
               <View style={s.projTop}>
                 <Text style={s.projName}>HobbyMap</Text>
@@ -305,10 +306,9 @@ export default function CVDocument({ t, photoUrl, baseUrl }: Props) {
                 </View>
               </View>
               <Text style={s.projStack}>{hobbymap.stack.join(" · ")}</Text>
-              <Text style={s.projDesc}>{trunc(t.projects.hobbymap.description, 210)}</Text>
+              <Text style={s.projDesc}>{trunc(t.projects.hobbymap.description, 200)}</Text>
             </View>
 
-            {/* Prognum */}
             <View style={s.projItem} wrap={false}>
               <View style={s.projTop}>
                 <Text style={s.projName}>Prognum</Text>
@@ -320,7 +320,6 @@ export default function CVDocument({ t, photoUrl, baseUrl }: Props) {
               <Text style={s.projDesc}>{trunc(t.projects.prognum.description, 190)}</Text>
             </View>
 
-            {/* Sonho dos Pés */}
             <View style={s.projItem} wrap={false}>
               <View style={s.projTop}>
                 <Text style={s.projName}>Sonho dos Pés</Text>
@@ -332,13 +331,9 @@ export default function CVDocument({ t, photoUrl, baseUrl }: Props) {
               <Text style={s.projDesc}>{trunc(t.projects.sonho.description, 190)}</Text>
             </View>
 
-            {/* GitHub */}
             <View style={s.projItem} wrap={false}>
               <View style={s.projTop}>
                 <Text style={s.projName}>GitHub</Text>
-                <Link src={personal.github} style={[s.projBadge, { color: C.cyan, backgroundColor: C.cyanLight }]}>
-                  github.com/FelipeVilelaFreire
-                </Link>
               </View>
               <Text style={s.projDesc}>{trunc(t.projects.github.description, 160)}</Text>
             </View>
