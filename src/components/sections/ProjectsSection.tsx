@@ -114,7 +114,7 @@ export default function ProjectsSection() {
                     dark:bg-orange-500/[0.07] dark:border-orange-500/[0.30] dark:text-orange-300
                     transition-colors duration-300">
                     <Bot size={11} />
-                    Built with {hobbymap.builtWith}
+                    {t.projects.builtWith} {hobbymap.builtWith}
                   </span>
                 </div>
 

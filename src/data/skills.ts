@@ -1,4 +1,4 @@
-export type SkillColor = "cyan" | "purple" | "green" | "white" | "orange" | "yellow" | "amber" | "rose" | "indigo";
+export type SkillColor = "cyan" | "purple" | "green" | "white" | "orange" | "yellow" | "amber" | "sky" | "indigo";
 
 export interface SkillItem  { name: string; color: SkillColor }
 export interface SkillGroup { label: string; skills: SkillItem[] }
@@ -8,7 +8,7 @@ export const SKILL_GROUPS: SkillGroup[] = [
     label: "AI Tools",
     skills: [
       { name: "Claude Code", color: "orange" },
-      { name: "Antigravity", color: "rose"   },
+      { name: "Antigravity", color: "sky"    },
       { name: "Gemini CLI",  color: "indigo" },
     ],
   },

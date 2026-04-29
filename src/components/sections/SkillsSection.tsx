@@ -27,9 +27,9 @@ const colorVariant: Record<string, string> = {
   amber:
     "border-amber-400/80 text-amber-700 bg-amber-50 hover:bg-amber-100 hover:border-amber-500/90 " +
     "dark:border-amber-500/35 dark:text-amber-300 dark:bg-amber-500/[0.07] dark:hover:bg-amber-500/[0.13] dark:hover:border-amber-400/55 dark:hover:shadow-[0_0_22px_rgba(245,158,11,0.22)]",
-  rose:
-    "border-rose-300/80 text-rose-700 bg-rose-50 hover:bg-rose-100 hover:border-rose-400/90 " +
-    "dark:border-rose-500/35 dark:text-rose-300 dark:bg-rose-500/[0.07] dark:hover:bg-rose-500/[0.13] dark:hover:border-rose-400/55 dark:hover:shadow-[0_0_22px_rgba(244,63,94,0.18)]",
+  sky:
+    "border-sky-300/80 text-sky-700 bg-sky-50 hover:bg-sky-100 hover:border-sky-400/90 " +
+    "dark:border-sky-500/35 dark:text-sky-200 dark:bg-sky-500/[0.07] dark:hover:bg-sky-500/[0.12] dark:hover:border-sky-400/50 dark:hover:shadow-[0_0_22px_rgba(14,165,233,0.18)]",
   indigo:
     "border-indigo-300/80 text-indigo-700 bg-indigo-50 hover:bg-indigo-100 hover:border-indigo-400/90 " +
     "dark:border-indigo-500/35 dark:text-indigo-300 dark:bg-indigo-500/[0.07] dark:hover:bg-indigo-500/[0.13] dark:hover:border-indigo-400/55 dark:hover:shadow-[0_0_22px_rgba(99,102,241,0.18)]",

@@ -43,6 +43,7 @@ export interface Messages {
     professional: string;
     personal:     string;
     viewDetails:  string;
+    builtWith:    string;
     hobbymap: {
       description:      string;
       modalDescription: string;
@@ -126,6 +127,7 @@ const messages: Record<Locale, Messages> = {
       professional: "Professional",
       personal:     "Personal",
       viewDetails:  "Details",
+      builtWith:    "Built with",
       hobbymap: {
         description:      "SaaS platform for instructors and venues to showcase their services — and for people to discover and practice hobbies near home.",
         modalDescription: "HobbyMap tackles the fragmentation of independent instruction. Instructors get a professional public profile, smart scheduling, and a training library to prescribe workouts and study plans. Students book sessions (in-person or remote), track their progress, and submit video for remote coaching. Venues register their spaces and list the benefit plans they accept (Wellhub, TotalPass, ClassPass) — so users can filter and find exactly where to train with their plan. Think Airbnb discovery + gym CRM + Strava progress tracking — all in one platform. The /explore page is the front door: search by activity, location, and benefit plan.",
@@ -213,6 +215,7 @@ const messages: Record<Locale, Messages> = {
       professional: "Profissional",
       personal:     "Pessoal",
       viewDetails:  "Detalhes",
+      builtWith:    "Feito com",
       hobbymap: {
         description:      "SaaS para instrutores e estabelecimentos divulgarem seus serviços — e para pessoas descobrirem e praticarem hobbies perto de casa.",
         modalDescription: "O HobbyMap resolve a fragmentação do ensino autônomo. Instrutores ganham perfil profissional público, agenda inteligente e uma biblioteca de treinos para prescrever exercícios e planos de estudo. Alunos agendam aulas (presenciais ou online), acompanham sua evolução e enviam vídeos para correção remota. Estabelecimentos cadastram seus espaços e os planos aceitos (Wellhub, TotalPass, ClassPass) — para que usuários filtrem e encontrem exatamente onde praticar com seu plano de benefício. Pense na descoberta do Airbnb + CRM de academia + tracking do Strava — tudo em um só lugar. A página /explore é a porta de entrada: busque por atividade, localização e plano de benefício.",
@@ -300,6 +303,7 @@ const messages: Record<Locale, Messages> = {
       professional: "Beruflich",
       personal:     "Persönlich",
       viewDetails:  "Details",
+      builtWith:    "Gebaut mit",
       hobbymap: {
         description:      "SaaS-Plattform für Trainer und Sportstätten, um ihre Dienste anzubieten — und für Menschen, Hobbys in der Nähe zu entdecken und auszuüben.",
         modalDescription: "HobbyMap löst die Fragmentierung des unabhängigen Unterrichts. Trainer erhalten ein öffentliches Profil, intelligente Terminplanung und eine Trainingsbibliothek für Workouts und Lernpläne. Schüler buchen Einheiten (vor Ort oder online), verfolgen ihren Fortschritt und senden Videos zur Fernkorrektur. Sportstätten registrieren ihre Räume und die akzeptierten Benefit-Pläne (Wellhub, TotalPass, ClassPass) — damit Nutzer filtern und genau herausfinden, wo sie mit ihrem Plan trainieren können. Denk an Airbnbs Entdeckung + Gym-CRM + Stravas Fortschritts-Tracking — alles in einem. Die /explore-Seite ist der Einstieg: suche nach Aktivität, Standort und Benefit-Plan.",
@@ -387,6 +391,7 @@ const messages: Record<Locale, Messages> = {
       professional: "Profesional",
       personal:     "Personal",
       viewDetails:  "Detalles",
+      builtWith:    "Construido con",
       hobbymap: {
         description:      "SaaS para instructores y espacios que divulgan sus servicios — y para que las personas descubran y practiquen hobbies cerca de casa.",
         modalDescription: "HobbyMap resuelve la fragmentación de la instrucción independiente. Los instructores obtienen un perfil profesional público, agenda inteligente y una biblioteca de entrenamientos para prescribir ejercicios y planes de estudio. Los alumnos reservan clases (presenciales u online), siguen su evolución y envían videos para corrección remota. Los establecimientos registran sus espacios y los planes aceptados (Wellhub, TotalPass, ClassPass) — para que los usuarios filtren y encuentren exactamente dónde entrenar con su plan. Piensa en el descubrimiento de Airbnb + CRM de gimnasio + tracking de Strava — todo en uno. La página /explore es la puerta de entrada: busca por actividad, ubicación y plan de beneficio.",
