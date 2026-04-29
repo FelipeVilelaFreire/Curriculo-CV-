@@ -33,9 +33,9 @@ function ThemedApp() {
           <LanguagesSection />
           <Divider printBreak />
           <TimelineSection />
-          <Divider printBreak />
-          <CertificationsSection />
           <Divider />
+          <CertificationsSection />
+          <Divider printBreak />
           <ProjectsSection />
           <Divider />
           <SkillsSection />
