@@ -29,12 +29,24 @@ html {
 
 /* ── Print styles ─────────────────────────────────────────────────────────── */
 @media print {
-  @page { margin: 12mm 15mm; size: A4 portrait; }
+  /* margin: 0 removes the browser-generated header/footer (date, URL, title) */
+  @page {
+    size: A4 portrait;
+    margin: 0;
+  }
 
-  /* Hide chrome */
+  /* Compensate with body padding so content isn't flush against edges */
+  html, body {
+    margin: 0 !important;
+    padding: 8mm 14mm !important;
+    background: #ffffff !important;
+    color: #09090b !important;
+  }
+
+  /* Hide navbar */
   nav { display: none !important; }
 
-  /* Force all Framer Motion elements visible */
+  /* Reset Framer Motion & visual effects */
   * {
     opacity: 1 !important;
     transform: none !important;
@@ -44,12 +56,24 @@ html {
     backdrop-filter: none !important;
   }
 
-  /* Force light background */
-  html, body { background: #ffffff !important; color: #09090b !important; }
+  /* Kill viewport-based min-heights — main culprit for one-section-per-page */
+  section,
+  [class*="min-h-"] {
+    min-height: auto !important;
+  }
 
-  /* Avoid page breaks inside sections */
-  section { break-inside: avoid; page-break-inside: avoid; }
+  /* Sections flow continuously; only avoid breaks inside individual cards */
+  section {
+    break-inside: auto !important;
+    page-break-inside: auto !important;
+    padding-top: 5mm !important;
+    padding-bottom: 5mm !important;
+  }
 
-  /* Remove decorative gradients */
-  [style*="background"] { background: transparent !important; }
+  /* Cards and timeline items stay together */
+  .rounded-2xl,
+  .rounded-xl {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
 }

@@ -110,8 +110,8 @@ export default function ProjectsSection() {
 
                 <div className="mb-6">
                   <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-semibold
-                    bg-amber-50 border border-amber-300/80 text-amber-700
-                    dark:bg-amber-500/[0.07] dark:border-amber-500/[0.30] dark:text-amber-300
+                    bg-orange-50 border border-orange-300/80 text-orange-700
+                    dark:bg-orange-500/[0.07] dark:border-orange-500/[0.30] dark:text-orange-300
                     transition-colors duration-300">
                     <Bot size={11} />
                     Built with {hobbymap.builtWith}

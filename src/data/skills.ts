@@ -7,7 +7,7 @@ export const SKILL_GROUPS: SkillGroup[] = [
   {
     label: "AI Tools",
     skills: [
-      { name: "Claude Code", color: "amber"  },
+      { name: "Claude Code", color: "orange" },
       { name: "Antigravity", color: "rose"   },
       { name: "Gemini CLI",  color: "indigo" },
     ],
