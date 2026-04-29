@@ -11,9 +11,9 @@ import ProjectsSection from "@/components/sections/ProjectsSection";
 import SkillsSection from "@/components/sections/SkillsSection";
 import HobbiesSection from "@/components/sections/HobbiesSection";
 
-function Divider({ printBreak = false }: { printBreak?: boolean }) {
+function Divider() {
   return (
-    <div className={`print-divider max-w-4xl mx-auto px-4${printBreak ? " print-break" : ""}`}>
+    <div className="print-divider max-w-4xl mx-auto px-4">
       <div className="h-px bg-black/[0.06] dark:bg-white/[0.07]" />
     </div>
   );
@@ -31,11 +31,13 @@ function ThemedApp() {
           <HeroSection />
           <Divider />
           <LanguagesSection />
-          <Divider printBreak />
+          <div className="print-page-break" />
+          <Divider />
           <TimelineSection />
           <Divider />
           <CertificationsSection />
-          <Divider printBreak />
+          <div className="print-page-break" />
+          <Divider />
           <ProjectsSection />
           <Divider />
           <SkillsSection />

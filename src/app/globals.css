@@ -18,6 +18,9 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Hidden on screen, becomes a zero-height page-break trigger in print */
+.print-page-break { display: none; }
+
 /* Light mode scrollbar */
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: #f7f7f7; }
@@ -77,12 +80,14 @@ html {
     page-break-inside: avoid;
   }
 
-  /* Explicit page breaks at section boundaries */
-  .print-break {
+  /* Hide dividers in print */
+  .print-divider { display: none !important; }
+
+  /* Page break helper — display:none on screen, rendered as zero-height block in print */
+  .print-page-break {
+    display: block !important;
+    height: 0 !important;
     break-before: page;
     page-break-before: always;
   }
-
-  /* Hide dividers in print */
-  .print-divider { display: none !important; }
 }
