@@ -30,7 +30,7 @@ export default function PrintModal({ onClose }: { onClose: () => void }) {
 
       const photoUrl = `${window.location.origin}${personal.photo}`;
       const blob = await pdf(
-        React.createElement(CVDocument, { t: messages[selected], photoUrl })
+        React.createElement(CVDocument, { t: messages[selected], photoUrl }) as React.ReactElement<never>
       ).toBlob();
 
       const url = URL.createObjectURL(blob);
