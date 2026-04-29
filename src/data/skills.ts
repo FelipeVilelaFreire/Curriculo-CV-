@@ -50,4 +50,14 @@ export const SKILL_GROUPS: SkillGroup[] = [
       { name: "Expo",   color: "white"  },
     ],
   },
+  {
+    label: "IAs",
+    skills: [
+      { name: "ChatGPT", color: "white" },
+      { name: "Claude",  color: "white" },
+      { name: "Gemini",  color: "white" },
+      { name: "Copilot", color: "white" },
+      { name: "Grok",    color: "white" },
+    ],
+  },
 ];

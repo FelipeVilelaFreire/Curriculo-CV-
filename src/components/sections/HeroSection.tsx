@@ -64,16 +64,16 @@ export default function HeroSection() {
           <div className="flex flex-col rounded-2xl border border-black/[0.08] dark:border-white/[0.16] bg-white/70 dark:bg-white/[0.07] backdrop-blur-sm shadow-sm dark:shadow-none transition-colors duration-300">
             {/* Row 1 — info strip */}
             <div className="grid grid-cols-3 divide-x divide-black/[0.08] dark:divide-white/[0.18]">
-              <div className="flex items-center justify-center gap-1.5 px-2 sm:px-4 py-2.5">
-                <span className="flex-shrink-0 text-[10px] font-bold tracking-widest px-1.5 py-0.5 rounded-md bg-zinc-100 border border-zinc-200 text-zinc-500 dark:bg-white/[0.12] dark:border-white/[0.20] dark:text-white/65 transition-colors duration-300">BR</span>
-                <span className="text-xs font-medium text-zinc-700 dark:text-zinc-200 transition-colors duration-300">{t.hero.nationality}</span>
+              <div className="flex items-center justify-center gap-1 px-1.5 sm:px-4 py-2.5">
+                <span className="flex-shrink-0 text-[9px] sm:text-[10px] font-bold tracking-widest px-1 sm:px-1.5 py-0.5 rounded-md bg-zinc-100 border border-zinc-200 text-zinc-500 dark:bg-white/[0.12] dark:border-white/[0.20] dark:text-white/65 transition-colors duration-300">BR</span>
+                <span className="text-[10px] sm:text-xs font-medium text-zinc-700 dark:text-zinc-200 leading-tight text-center transition-colors duration-300">{t.hero.nationality}</span>
               </div>
-              <div className="flex items-center justify-center px-2 sm:px-4 py-2.5">
-                <span className="text-xs font-medium text-zinc-700 dark:text-zinc-200 transition-colors duration-300">{t.hero.age}</span>
+              <div className="flex items-center justify-center px-1.5 sm:px-4 py-2.5">
+                <span className="text-[10px] sm:text-xs font-medium text-zinc-700 dark:text-zinc-200 leading-tight text-center transition-colors duration-300">{t.hero.age}</span>
               </div>
-              <div className="flex items-center justify-center gap-1.5 px-2 sm:px-4 py-2.5">
-                <span className="flex-shrink-0 text-[10px] font-bold tracking-widest px-1.5 py-0.5 rounded-md bg-zinc-100 border border-zinc-200 text-zinc-500 dark:bg-white/[0.12] dark:border-white/[0.20] dark:text-white/65 transition-colors duration-300">EU</span>
-                <span className="text-xs font-medium text-zinc-700 dark:text-zinc-200 transition-colors duration-300">{t.hero.citizenship}</span>
+              <div className="flex items-center justify-center gap-1 px-1.5 sm:px-4 py-2.5">
+                <span className="flex-shrink-0 text-[9px] sm:text-[10px] font-bold tracking-widest px-1 sm:px-1.5 py-0.5 rounded-md bg-zinc-100 border border-zinc-200 text-zinc-500 dark:bg-white/[0.12] dark:border-white/[0.20] dark:text-white/65 transition-colors duration-300">EU</span>
+                <span className="text-[10px] sm:text-xs font-medium text-zinc-700 dark:text-zinc-200 leading-tight text-center transition-colors duration-300">{t.hero.citizenship}</span>
               </div>
             </div>
 
