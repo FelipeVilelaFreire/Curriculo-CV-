@@ -109,12 +109,11 @@ const s = StyleSheet.create({
   // Timeline
   tlItem:   { marginBottom: 12 },
   tlTop:    { flexDirection: "row", alignItems: "flex-start" },
-  tlLogo:   { width: 32, height: 32, borderRadius: 6, marginRight: 10, marginTop: 1 },
-  tlLogoBg: {
-    width: 32, height: 32, borderRadius: 6, marginRight: 10, marginTop: 1,
-    backgroundColor: C.bg, alignItems: "center", justifyContent: "center",
+  tlLogoBox: {
+    width: 64, height: 28,
+    marginRight: 10, marginTop: 3,
+    alignItems: "center", justifyContent: "center",
   },
-  tlLogoInitials: { fontSize: 8, fontFamily: "Helvetica-Bold", color: C.muted },
   tlBody:    { flex: 1 },
   tlHeadRow: {
     flexDirection: "row", justifyContent: "space-between",
@@ -191,17 +190,31 @@ const trunc = (str: string, max: number) =>
 
 const PDF_SKILLS = SKILL_GROUPS.filter(g => g.label !== "IAs");
 
-const LOGO_INITIALS: Partial<Record<string, string>> = {
-  santo_inacio: "SI",
+// Real pixel dimensions of each logo (w × h)
+const LOGO_ASPECT: Record<string, number> = {
+  prognum:      249 / 56,   // 4.45 — wide wordmark
+  uff:          289 / 296,  // 0.98 — roughly square
+  santo_inacio: 200 / 200,  // 1.00 — square
+  escola:       506 / 277,  // 1.83 — landscape
 };
+
+const BOX_W = 64;
+const BOX_H = 28;
+
+function logoSize(key: string): { width: number; height: number } {
+  const a = LOGO_ASPECT[key] ?? 1;
+  const hFromW = BOX_W / a;
+  if (hFromW <= BOX_H) return { width: BOX_W, height: hFromW };
+  return { width: BOX_H * a, height: BOX_H };
+}
 
 interface Props { t: Messages; photoUrl: string; baseUrl: string }
 
 export default function CVDocument({ t, photoUrl, baseUrl }: Props) {
-  const logos: Record<string, string | null> = {
+  const logos: Record<string, string> = {
     prognum:      `${baseUrl}/logos/Prognum.png`,
     uff:          `${baseUrl}/logos/uff.png`,
-    santo_inacio: null,
+    santo_inacio: `${baseUrl}/logos/santoinacio.png`,
     escola:       `${baseUrl}/logos/saobento.png`,
   };
 
@@ -249,16 +262,14 @@ export default function CVDocument({ t, photoUrl, baseUrl }: Props) {
           <View style={s.colExp}>
             <Text style={[s.secTitle, s.secFirst]}>{t.sections.experience.toUpperCase()}</Text>
             {(["prognum", "uff", "santo_inacio", "escola"] as const).map(key => {
-              const item  = t.timeline.items[key];
-              const logo  = logos[key];
-              const inits = LOGO_INITIALS[key] ?? companies[key].slice(0, 2).toUpperCase();
+              const item = t.timeline.items[key];
+              const sz   = logoSize(key);
               return (
                 <View key={key} style={s.tlItem} wrap={false}>
                   <View style={s.tlTop}>
-                    {logo
-                      ? <Image src={logo} style={s.tlLogo} />
-                      : <View style={s.tlLogoBg}><Text style={s.tlLogoInitials}>{inits}</Text></View>
-                    }
+                    <View style={s.tlLogoBox}>
+                      <Image src={logos[key]} style={sz} />
+                    </View>
                     <View style={s.tlBody}>
                       <View style={s.tlHeadRow}>
                         <Text style={s.tlCompany}>{companies[key]}</Text>
