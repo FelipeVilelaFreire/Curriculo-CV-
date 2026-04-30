@@ -45,6 +45,13 @@ const s = StyleSheet.create({
   hRight:   { flex: 1 },
   name:     { fontSize: 21, fontFamily: "Helvetica-Bold", color: C.dark, marginBottom: 2 },
   subtitle: { fontSize: 8, color: C.muted, marginBottom: 6 },
+  webCvRow: { flexDirection: "row", alignItems: "center", marginBottom: 6 },
+  webCvLabel: { fontSize: 6.5, color: C.muted, marginRight: 5 },
+  webCvLink: {
+    fontSize: 7.5, fontFamily: "Helvetica-Bold", color: C.cyan,
+    backgroundColor: C.cyanLight, borderRadius: 3,
+    paddingHorizontal: 6, paddingVertical: 2,
+  },
   contactRow: { flexDirection: "row", marginBottom: 6 },
   cText: { fontSize: 7, color: C.muted, marginRight: 14 },
   cLink: { fontSize: 7, color: C.cyan,  marginRight: 14 },
@@ -188,7 +195,7 @@ const s = StyleSheet.create({
 const trunc = (str: string, max: number) =>
   str.length > max ? str.slice(0, max).trimEnd() + "…" : str;
 
-const PDF_SKILLS = SKILL_GROUPS.filter(g => g.label !== "IAs");
+const PDF_SKILLS = SKILL_GROUPS;
 
 // Real pixel dimensions of each logo (w × h)
 const LOGO_ASPECT: Record<string, number> = {
@@ -228,6 +235,12 @@ export default function CVDocument({ t, photoUrl, baseUrl }: Props) {
           <View style={s.hRight}>
             <Text style={s.name}>{personal.name}</Text>
             <Text style={s.subtitle}>{t.hero.subtitle}</Text>
+            <View style={s.webCvRow}>
+              <Text style={s.webCvLabel}>CV Web</Text>
+              <Link src="https://felipefreire-cv.vercel.app/" style={s.webCvLink}>
+                felipefreire-cv.vercel.app
+              </Link>
+            </View>
             <View style={s.contactRow}>
               <Text style={s.cText}>{personal.email}</Text>
               <Link src={personal.linkedin} style={s.cLink}>LinkedIn</Link>
@@ -334,7 +347,7 @@ export default function CVDocument({ t, photoUrl, baseUrl }: Props) {
               {/* HobbyMap */}
               <View style={s.projItem} wrap={false}>
                 <View style={s.projTop}>
-                  <Text style={s.projName}>HobbyMap</Text>
+                  <Link src={hobbymap.url} style={s.projName}>HobbyMap</Link>
                   <View style={s.projBadges}>
                     <Text style={[s.projBadge, { color: C.green,  backgroundColor: C.greenBg  }]}>Live</Text>
                     <Text style={[s.projBadge, { color: C.orange, backgroundColor: C.orangeBg }]}>
