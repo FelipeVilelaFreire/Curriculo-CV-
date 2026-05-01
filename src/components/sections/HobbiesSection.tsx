@@ -118,7 +118,7 @@ export default function HobbiesSection() {
               {/* Jovens da Paz logo or fallback */}
               <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-amber-400 dark:bg-transparent border border-amber-400/40 dark:border-amber-500/20 flex items-center justify-center overflow-hidden p-1.5 transition-colors duration-300">
                 {logos.jovensdapaz
-                  ? <Image src={logos.jovensdapaz} alt="Jovens da Paz" className="w-full h-full object-contain" />
+                  ? <Image src={logos.jovensdapaz} alt="Jovens da Paz" width={48} height={48} className="w-full h-full object-contain" />
                   : <Heart size={18} className="text-amber-600 dark:text-amber-400" />}
               </div>
 

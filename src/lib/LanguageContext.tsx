@@ -21,6 +21,7 @@ export interface Messages {
     skills: string;
     hobbies: string;
     hobbiesSubtitle: string;
+    contact: string;
   };
   certifications: {
     viewCert: string;
@@ -87,6 +88,7 @@ export const messages: Record<Locale, Messages> = {
       skills:          "Technical Skills",
       hobbies:         "Beyond the Code",
       hobbiesSubtitle: "Soft skills development through life",
+      contact:         "Get in Touch",
     },
     certifications: {
       viewCert: "View Certificate",
@@ -175,6 +177,7 @@ export const messages: Record<Locale, Messages> = {
       skills:          "Habilidades Técnicas",
       hobbies:         "Além do Código",
       hobbiesSubtitle: "Desenvolvimento de soft skills através da vida",
+      contact:         "Entre em Contato",
     },
     certifications: {
       viewCert: "Ver Certificado",
@@ -263,6 +266,7 @@ export const messages: Record<Locale, Messages> = {
       skills:          "Technische Fähigkeiten",
       hobbies:         "Jenseits des Codes",
       hobbiesSubtitle: "Soft-Skills-Entwicklung durch das Leben",
+      contact:         "Kontakt",
     },
     certifications: {
       viewCert: "Zertifikat ansehen",
@@ -351,6 +355,7 @@ export const messages: Record<Locale, Messages> = {
       skills:          "Habilidades Técnicas",
       hobbies:         "Más Allá del Código",
       hobbiesSubtitle: "Desarrollo de soft skills a través de la vida",
+      contact:         "Contacto",
     },
     certifications: {
       viewCert: "Ver Certificado",

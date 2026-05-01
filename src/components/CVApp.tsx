@@ -10,6 +10,7 @@ import CertificationsSection from "@/components/sections/CertificationsSection";
 import ProjectsSection from "@/components/sections/ProjectsSection";
 import SkillsSection from "@/components/sections/SkillsSection";
 import HobbiesSection from "@/components/sections/HobbiesSection";
+import ContactSection from "@/components/sections/ContactSection";
 
 function Divider() {
   return (
@@ -44,6 +45,9 @@ function ThemedApp() {
           <div className="print-page-break" />
           <Divider />
           <HobbiesSection />
+          <div className="print-page-break" />
+          <Divider />
+          <ContactSection />
         </div>
       </main>
     </div>

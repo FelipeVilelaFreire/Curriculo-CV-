@@ -4,7 +4,7 @@ export const personal = {
   email:    "felipe.vilela.freire@gmail.com",
   linkedin: "https://linkedin.com/in/felipevilelafreire786721336",
   github:   "https://github.com/FelipeVilelaFreire",
-  photo:    "/assets/fotos/felipevilelafreire.jfif",
+  photo:    "/fotos/felipevilelafreire.jfif",
 } as const;
 
 export const companies = {
