@@ -33,6 +33,12 @@ const colorVariant: Record<string, string> = {
   indigo:
     "border-indigo-300/80 text-indigo-700 bg-indigo-50 hover:bg-indigo-100 hover:border-indigo-400/90 " +
     "dark:border-indigo-500/35 dark:text-indigo-300 dark:bg-indigo-500/[0.07] dark:hover:bg-indigo-500/[0.13] dark:hover:border-indigo-400/55 dark:hover:shadow-[0_0_22px_rgba(99,102,241,0.18)]",
+  codex:
+    "border-zinc-300 text-zinc-800 bg-white hover:bg-zinc-50 hover:border-emerald-400/80 hover:text-emerald-700 " +
+    "dark:border-white/25 dark:text-white dark:bg-white/[0.06] dark:hover:bg-emerald-500/[0.10] dark:hover:border-emerald-400/55 dark:hover:text-emerald-200 dark:hover:shadow-[0_0_24px_rgba(16,185,129,0.18)]",
+  blue:
+    "border-blue-300/80 text-blue-700 bg-blue-50 hover:bg-blue-100 hover:border-blue-400/90 " +
+    "dark:border-blue-500/35 dark:text-blue-300 dark:bg-blue-500/[0.06] dark:hover:bg-blue-500/[0.12] dark:hover:border-blue-400/55",
 };
 
 export default function SkillsSection() {

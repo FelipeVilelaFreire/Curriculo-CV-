@@ -1,4 +1,15 @@
-export type SkillColor = "cyan" | "purple" | "green" | "white" | "orange" | "yellow" | "amber" | "sky" | "indigo";
+export type SkillColor =
+  | "cyan"
+  | "purple"
+  | "green"
+  | "white"
+  | "orange"
+  | "yellow"
+  | "amber"
+  | "sky"
+  | "indigo"
+  | "codex"
+  | "blue";
 
 export interface SkillItem  { name: string; color: SkillColor }
 export interface SkillGroup { label: string; skills: SkillItem[] }
@@ -8,6 +19,7 @@ export const SKILL_GROUPS: SkillGroup[] = [
     label: "AI Tools",
     skills: [
       { name: "Claude Code", color: "orange" },
+      { name: "Codex",       color: "codex"  },
       { name: "Antigravity", color: "sky"    },
       { name: "Gemini CLI",  color: "indigo" },
     ],
@@ -48,6 +60,17 @@ export const SKILL_GROUPS: SkillGroup[] = [
       { name: "AWS S3", color: "orange" },
       { name: "Vercel", color: "white"  },
       { name: "Expo",   color: "white"  },
+    ],
+  },
+  {
+    label: "Productivity & Design",
+    skills: [
+      { name: "Microsoft 365", color: "blue"   },
+      { name: "Excel",         color: "green"  },
+      { name: "PowerPoint",    color: "orange" },
+      { name: "Word",          color: "sky"    },
+      { name: "Figma",         color: "purple" },
+      { name: "Canva",         color: "cyan"   },
     ],
   },
   {
