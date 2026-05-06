@@ -39,6 +39,9 @@ const colorVariant: Record<string, string> = {
   blue:
     "border-blue-300/80 text-blue-700 bg-blue-50 hover:bg-blue-100 hover:border-blue-400/90 " +
     "dark:border-blue-500/35 dark:text-blue-300 dark:bg-blue-500/[0.06] dark:hover:bg-blue-500/[0.12] dark:hover:border-blue-400/55",
+  pink:
+    "border-pink-300/80 text-pink-700 bg-pink-50 hover:bg-pink-100 hover:border-pink-400/90 " +
+    "dark:border-pink-500/35 dark:text-pink-300 dark:bg-pink-500/[0.06] dark:hover:bg-pink-500/[0.12] dark:hover:border-pink-400/55",
 };
 
 export default function SkillsSection() {

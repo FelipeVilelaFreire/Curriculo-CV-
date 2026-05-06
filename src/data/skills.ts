@@ -9,7 +9,8 @@ export type SkillColor =
   | "sky"
   | "indigo"
   | "codex"
-  | "blue";
+  | "blue"
+  | "pink";
 
 export interface SkillItem  { name: string; color: SkillColor }
 export interface SkillGroup { label: string; skills: SkillItem[] }
@@ -80,6 +81,8 @@ export const SKILL_GROUPS: SkillGroup[] = [
       { name: "Claude",  color: "orange" },
       { name: "Gemini",  color: "sky"    },
       { name: "Copilot", color: "purple" },
+      { name: "Lovable", color: "pink"   },
+      { name: "Stitch",  color: "blue"   },
       { name: "Grok",    color: "white"  },
     ],
   },
