@@ -64,9 +64,9 @@ export interface Messages {
     github:  { description: string };
   };
   hobbies: {
-    sport:     { label: string; sublabel: string };
-    music:     { label: string; sublabel: string };
-    volunteer: { label: string; sublabel: string; description: string };
+    sport:     { label: string; sublabel: string; tags: string[] };
+    music:     { label: string; sublabel: string; tags: string[] };
+    volunteer: { label: string; sublabel: string; description: string; tags: string[]; org: string };
   };
 }
 
@@ -155,9 +155,9 @@ export const messages: Record<Locale, Messages> = {
       },
     },
     hobbies: {
-      sport:     { label: "Sport",        sublabel: "Physical discipline & resilience" },
-      music:     { label: "Music",        sublabel: "Creativity & pattern recognition" },
-      volunteer: { label: "Volunteering", sublabel: "Leadership & social impact", description: "Volunteer at the Encontro de Jovens com Cristo (EJC), organized by Igreja Nossa Senhora da Paz — Ipanema, Rio de Janeiro." },
+      sport:     { label: "Sport",        sublabel: "Physical discipline & resilience", tags: ["Soccer", "Surfing", "Volleyball", "Footvolley"] },
+      music:     { label: "Music",        sublabel: "Creativity & pattern recognition", tags: ["Cavaquinho", "Acoustic Guitar"] },
+      volunteer: { label: "Volunteering", sublabel: "Leadership & social impact", description: "Volunteer at the Encontro de Jovens com Cristo (EJC), organized by Igreja Nossa Senhora da Paz — Ipanema, Rio de Janeiro.", tags: ["EJC – Youth Encounter with Christ"], org: "Youth of Peace" },
     },
   },
 
@@ -244,9 +244,9 @@ export const messages: Record<Locale, Messages> = {
       },
     },
     hobbies: {
-      sport:     { label: "Esporte",      sublabel: "Disciplina física & resiliência" },
-      music:     { label: "Música",       sublabel: "Criatividade & reconhecimento de padrões" },
-      volunteer: { label: "Voluntariado", sublabel: "Liderança & impacto social", description: "Voluntário no Encontro de Jovens com Cristo (EJC), realizado pela Igreja Nossa Senhora da Paz — Ipanema, Rio de Janeiro." },
+      sport:     { label: "Esporte",      sublabel: "Disciplina física & resiliência", tags: ["Futebol", "Surf", "Vôlei", "Futevôlei"] },
+      music:     { label: "Música",       sublabel: "Criatividade & reconhecimento de padrões", tags: ["Cavaquinho", "Violão"] },
+      volunteer: { label: "Voluntariado", sublabel: "Liderança & impacto social", description: "Voluntário no Encontro de Jovens com Cristo (EJC), realizado pela Igreja Nossa Senhora da Paz — Ipanema, Rio de Janeiro.", tags: ["EJC – Encontro de Jovens com Cristo"], org: "Jovens da Paz" },
     },
   },
 
@@ -333,9 +333,9 @@ export const messages: Record<Locale, Messages> = {
       },
     },
     hobbies: {
-      sport:     { label: "Sport",    sublabel: "Körperliche Disziplin & Resilienz" },
-      music:     { label: "Musik",    sublabel: "Kreativität & Mustererkennung" },
-      volunteer: { label: "Ehrenamt", sublabel: "Führung & sozialer Einfluss", description: "Ehrenamtlich beim Encontro de Jovens com Cristo (EJC), veranstaltet von der Igreja Nossa Senhora da Paz — Ipanema, Rio de Janeiro." },
+      sport:     { label: "Sport",    sublabel: "Körperliche Disziplin & Resilienz", tags: ["Fußball", "Surfen", "Volleyball", "Footvolley"] },
+      music:     { label: "Musik",    sublabel: "Kreativität & Mustererkennung", tags: ["Cavaquinho", "Akustikgitarre"] },
+      volunteer: { label: "Ehrenamt", sublabel: "Führung & sozialer Einfluss", description: "Ehrenamtlich beim Encontro de Jovens com Cristo (EJC), veranstaltet von der Igreja Nossa Senhora da Paz — Ipanema, Rio de Janeiro.", tags: ["EJC – Jugendbegegnung mit Christus"], org: "Jugend des Friedens" },
     },
   },
 
@@ -422,9 +422,9 @@ export const messages: Record<Locale, Messages> = {
       },
     },
     hobbies: {
-      sport:     { label: "Deporte",      sublabel: "Disciplina física & resiliencia" },
-      music:     { label: "Música",       sublabel: "Creatividad & reconocimiento de patrones" },
-      volunteer: { label: "Voluntariado", sublabel: "Liderazgo & impacto social", description: "Voluntario en el Encuentro de Jóvenes con Cristo (EJC), organizado por la Iglesia Nossa Senhora da Paz — Ipanema, Río de Janeiro." },
+      sport:     { label: "Deporte",      sublabel: "Disciplina física & resiliencia", tags: ["Fútbol", "Surf", "Voleibol", "Futevóley"] },
+      music:     { label: "Música",       sublabel: "Creatividad & reconocimiento de patrones", tags: ["Cavaquinho", "Guitarra Acústica"] },
+      volunteer: { label: "Voluntariado", sublabel: "Liderazgo & impacto social", description: "Voluntario en el Encuentro de Jóvenes con Cristo (EJC), organizado por la Iglesia Nossa Senhora da Paz — Ipanema, Río de Janeiro.", tags: ["EJC – Encuentro de Jóvenes con Cristo"], org: "Jóvenes de la Paz" },
     },
   },
 };
@@ -443,7 +443,7 @@ const LanguageContext = createContext<LangCtx>({
 });
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocale] = useState<Locale>("pt");
+  const [locale, setLocale] = useState<Locale>("en");
   return (
     <LanguageContext.Provider value={{ locale, setLocale, t: messages[locale] }}>
       {children}

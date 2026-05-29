@@ -4,7 +4,7 @@ import {
   Document, Page, Text, View, Image, Link, StyleSheet,
 } from "@react-pdf/renderer";
 import { type Messages } from "@/lib/LanguageContext";
-import { personal, companies, toefl, hobbyTags, volunteerOrg } from "@/data/personal";
+import { personal, companies, toefl } from "@/data/personal";
 import { SKILL_GROUPS } from "@/data/skills";
 import { hobbymap, prognum, sonho } from "@/data/projects";
 
@@ -320,16 +320,16 @@ export default function CVDocument({ t, photoUrl, baseUrl }: Props) {
             <Text style={s.secTitle}>{t.sections.hobbies.toUpperCase()}</Text>
             <View style={s.hobbyItem}>
               <Text style={s.hobbyLabel}>{t.hobbies.sport.label}</Text>
-              <Text style={s.hobbyDetail}>{hobbyTags.sport.join(", ")}</Text>
+              <Text style={s.hobbyDetail}>{t.hobbies.sport.tags.join(", ")}</Text>
             </View>
             <View style={s.hobbyItem}>
               <Text style={s.hobbyLabel}>{t.hobbies.music.label}</Text>
-              <Text style={s.hobbyDetail}>{hobbyTags.music.join(", ")}</Text>
+              <Text style={s.hobbyDetail}>{t.hobbies.music.tags.join(", ")}</Text>
             </View>
             <View style={s.hobbyItem}>
               <Text style={s.hobbyLabel}>{t.hobbies.volunteer.label}</Text>
-              <Text style={s.hobbyDetail}>{hobbyTags.volunteer[0]}</Text>
-              <Text style={s.hobbyDetail}>{volunteerOrg} · Ipanema, RJ</Text>
+              <Text style={s.hobbyDetail}>{t.hobbies.volunteer.tags.join(", ")}</Text>
+              <Text style={s.hobbyDetail}>{t.hobbies.volunteer.org} · Ipanema, RJ</Text>
             </View>
 
           </View>
@@ -356,7 +356,7 @@ export default function CVDocument({ t, photoUrl, baseUrl }: Props) {
                   </View>
                 </View>
                 <Text style={s.projStack}>{hobbymap.stack.join(" · ")}</Text>
-                <Text style={s.projDesc}>{trunc(t.projects.hobbymap.description, 260)}</Text>
+                <Text style={s.projDesc}>{t.projects.hobbymap.description}</Text>
               </View>
 
               {/* Sonho dos Pés */}
@@ -368,7 +368,7 @@ export default function CVDocument({ t, photoUrl, baseUrl }: Props) {
                   </Text>
                 </View>
                 <Text style={s.projStack}>{sonho.stack.join(" · ")}</Text>
-                <Text style={s.projDesc}>{trunc(t.projects.sonho.description, 260)}</Text>
+                <Text style={s.projDesc}>{t.projects.sonho.description}</Text>
               </View>
 
             </View>
@@ -385,7 +385,7 @@ export default function CVDocument({ t, photoUrl, baseUrl }: Props) {
                   </Text>
                 </View>
                 <Text style={s.projStack}>{prognum.stack.join(" · ")}</Text>
-                <Text style={s.projDesc}>{trunc(t.projects.prognum.description, 260)}</Text>
+                <Text style={s.projDesc}>{t.projects.prognum.description}</Text>
               </View>
 
               {/* GitHub */}
@@ -399,7 +399,7 @@ export default function CVDocument({ t, photoUrl, baseUrl }: Props) {
                     github.com/FelipeVilelaFreire
                   </Link>
                 </View>
-                <Text style={s.projDesc}>{trunc(t.projects.github.description, 220)}</Text>
+                <Text style={s.projDesc}>{t.projects.github.description}</Text>
               </View>
 
             </View>

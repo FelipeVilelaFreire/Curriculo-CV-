@@ -4,7 +4,6 @@ import { motion, useInView } from "framer-motion";
 import { Dumbbell, Music, Heart } from "lucide-react";
 import Image from "next/image";
 import { useLanguage } from "@/lib/LanguageContext";
-import { hobbyTags, volunteerOrg } from "@/data/personal";
 import { logos } from "@/assets/logos";
 
 export default function HobbiesSection() {
@@ -52,7 +51,7 @@ export default function HobbiesSection() {
               {t.hobbies.sport.sublabel}
             </p>
             <div className="flex flex-wrap gap-1.5">
-              {hobbyTags.sport.map((tag) => (
+              {t.hobbies.sport.tags.map((tag) => (
                 <span
                   key={tag}
                   className="px-2.5 py-0.5 rounded-md text-[11px] font-medium
@@ -88,7 +87,7 @@ export default function HobbiesSection() {
               {t.hobbies.music.sublabel}
             </p>
             <div className="flex flex-wrap gap-1.5">
-              {hobbyTags.music.map((tag) => (
+              {t.hobbies.music.tags.map((tag) => (
                 <span
                   key={tag}
                   className="px-2.5 py-0.5 rounded-md text-[11px] font-medium
@@ -132,7 +131,7 @@ export default function HobbiesSection() {
 
                 {/* EJC tag */}
                 <div className="flex flex-wrap gap-1.5 mb-3">
-                  {hobbyTags.volunteer.map((tag) => (
+                  {t.hobbies.volunteer.tags.map((tag) => (
                     <span
                       key={tag}
                       className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md text-[11px] font-medium
@@ -142,7 +141,7 @@ export default function HobbiesSection() {
                     >
                       {tag}
                       <span className="text-amber-400 dark:text-amber-600 select-none">·</span>
-                      <span className="text-amber-500 dark:text-amber-400">{volunteerOrg}</span>
+                      <span className="text-amber-500 dark:text-amber-400">{t.hobbies.volunteer.org}</span>
                     </span>
                   ))}
                 </div>
