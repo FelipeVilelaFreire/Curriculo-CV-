@@ -14,7 +14,24 @@
       "WebFetch(domain:commons.wikimedia.org)",
       "WebFetch(domain:upload.wikimedia.org)",
       "WebFetch(domain:hobbymap.com.br)",
-      "WebFetch(domain:www.santoinacio-rio.com.br)"
+      "WebFetch(domain:www.santoinacio-rio.com.br)",
+      "WebFetch(domain:www.sonhodospesoficial.com.br)",
+      "PowerShell(Invoke-WebRequest -Uri \"https://sonhodospes.vtexassets.com/assets/vtex/assets-builder/sonhodospes.sonhodospes/3.0.82/images/logo___12f6ddfea274635f1d74ec07036a5d26.svg\" -OutFile \"C:\\\\Users\\\\Felipe.Freire\\\\Documents\\\\Documentos\\\\Sites\\\\Faculdade\\\\Curriclo\\\\cv-portfolio\\\\src\\\\assets\\\\logos\\\\sonhodospes.svg\")",
+      "WebFetch(domain:www.jovensdapaz.com.br)",
+      "PowerShell(Invoke-WebRequest -Uri \"https://static.wixstatic.com/media/865a7c_e98d61a76c824b109d7dfdb44a7818f1~mv2.png/v1/fill/w_113,h_80,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/LOGO%20-%20PASTORAL%20JOVEM-10.png\" -OutFile \"C:\\\\Users\\\\Felipe.Freire\\\\Documents\\\\Documentos\\\\Sites\\\\Faculdade\\\\Curriclo\\\\cv-portfolio\\\\src\\\\assets\\\\logos\\\\jovensdapaz.png\")",
+      "WebFetch(domain:csbrj.org.br)",
+      "WebFetch(domain:pt.wikipedia.org)",
+      "PowerShell(Invoke-WebRequest -Uri \"https://upload.wikimedia.org/wikipedia/commons/d/d2/Escudo_sao_bento.jpg\" -OutFile \"C:\\\\Users\\\\Felipe.Freire\\\\Documents\\\\Documentos\\\\Sites\\\\Faculdade\\\\Curriclo\\\\cv-portfolio\\\\src\\\\assets\\\\logos\\\\saobento.jpg\")",
+      "WebFetch(domain:en.wikipedia.org)",
+      "WebFetch(domain:logodetimes.com)",
+      "WebFetch(domain:seeklogo.com)",
+      "PowerShell(Remove-Item *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git remote *)",
+      "Bash(git push *)",
+      "Bash(git checkout *)",
+      "Bash(git commit *)"
     ]
   }
 }
