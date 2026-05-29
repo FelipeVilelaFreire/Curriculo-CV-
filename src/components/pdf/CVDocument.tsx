@@ -347,8 +347,14 @@ export default function CVDocument({ t, photoUrl, baseUrl }: Props) {
               {/* HobbyMap */}
               <View style={s.projItem} wrap={false}>
                 <View style={s.projTop}>
-                  <Link src={hobbymap.url} style={s.projName}>HobbyMap</Link>
+                  <Text style={s.projName}>HobbyMap</Text>
                   <View style={s.projBadges}>
+                    <Link
+                      src={hobbymap.url}
+                      style={[s.projBadge, { color: C.cyan, backgroundColor: C.cyanLight }]}
+                    >
+                      hobbymap.com.br
+                    </Link>
                     <Text style={[s.projBadge, { color: C.green,  backgroundColor: C.greenBg  }]}>Live</Text>
                     <Text style={[s.projBadge, { color: C.orange, backgroundColor: C.orangeBg }]}>
                       {t.projects.builtWith} {hobbymap.builtWith}
