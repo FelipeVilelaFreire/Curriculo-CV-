@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx create-next-app@latest . --typescript --tailwind --app --no-eslint --src-dir --no-import-alias --yes)",
+      "Bash(npx create-next-app@latest cv-portfolio --typescript --tailwind --app --no-eslint --src-dir --no-import-alias --yes)",
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(node -e \"const l = require\\('lucide-react'\\); const keys = Object.keys\\(l\\).filter\\(k => k.includes\\('Git'\\) || k.includes\\('Linked'\\) || k.includes\\('Link'\\)\\); console.log\\(keys.join\\('\\\\n'\\)\\)\")",
+      "Bash(node -e \"const l = require\\('lucide-react'\\); const keys = Object.keys\\(l\\).filter\\(k => k === 'Download' || k === 'ArrowUpRight' || k === 'ExternalLink'\\); console.log\\(keys.join\\('\\\\n'\\)\\)\")",
+      "Bash(node -e \"const l = require\\('lucide-react'\\); const k = Object.keys\\(l\\).filter\\(x => x === 'Sun' || x === 'Moon'\\); console.log\\(k.join\\(', '\\)\\)\")",
+      "Bash(node -e \"const l = require\\('lucide-react'\\); console.log\\(Object.keys\\(l\\).filter\\(k => k === 'Globe' || k === 'Languages' || k === 'Translate'\\).join\\(', '\\)\\)\")",
+      "WebSearch",
+      "WebFetch(domain:www.ets.org)",
+      "WebFetch(domain:commons.wikimedia.org)",
+      "WebFetch(domain:upload.wikimedia.org)",
+      "WebFetch(domain:hobbymap.com.br)",
+      "WebFetch(domain:www.santoinacio-rio.com.br)"
+    ]
+  }
+}
