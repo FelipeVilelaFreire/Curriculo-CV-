@@ -25,6 +25,7 @@ export interface Messages {
   };
   certifications: {
     viewCert: string;
+    open: string;
   };
   langs: Record<
     "german" | "english" | "spanish" | "portuguese",
@@ -92,6 +93,7 @@ export const messages: Record<Locale, Messages> = {
     },
     certifications: {
       viewCert: "View Certificate",
+      open: "Open",
     },
     langs: {
       german:     { name: "Deutsch",   level: "—",     note: "" },
@@ -181,6 +183,7 @@ export const messages: Record<Locale, Messages> = {
     },
     certifications: {
       viewCert: "Ver Certificado",
+      open: "Abrir",
     },
     langs: {
       german:     { name: "Alemão",    level: "—",      note: "" },
@@ -270,6 +273,7 @@ export const messages: Record<Locale, Messages> = {
     },
     certifications: {
       viewCert: "Zertifikat ansehen",
+      open: "Öffnen",
     },
     langs: {
       german:     { name: "Deutsch",       level: "—",           note: "" },
@@ -359,6 +363,7 @@ export const messages: Record<Locale, Messages> = {
     },
     certifications: {
       viewCert: "Ver Certificado",
+      open: "Abrir",
     },
     langs: {
       german:     { name: "Alemán",    level: "—",      note: "" },

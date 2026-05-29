@@ -131,7 +131,8 @@ export default function Navbar() {
 
           <div className="w-px h-5 bg-black/10 dark:bg-white/10 transition-colors duration-300" />
 
-          <button
+          {/* Download PDF — temporariamente desativado */}
+          {/* <button
             onClick={() => setPrintOpen(true)}
             className="
               flex items-center gap-2 px-3 sm:px-5 py-2 rounded-xl text-xs font-semibold transition-all duration-300
@@ -143,7 +144,7 @@ export default function Navbar() {
           >
             <Download size={13} />
             <span className="hidden sm:inline">{t.nav.downloadPDF}</span>
-          </button>
+          </button> */}
         </div>
       </div>
     </nav>

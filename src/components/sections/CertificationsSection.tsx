@@ -123,7 +123,7 @@ export default function CertificationsSection() {
                       transition-all duration-200"
                   >
                     <ExternalLink size={11} />
-                    Abrir
+                    {t.certifications.open}
                   </a>
                   <button
                     onClick={() => setOpen(false)}
@@ -164,7 +164,7 @@ export default function CertificationsSection() {
                       dark:hover:bg-cyan-500/[0.18] dark:hover:border-cyan-500/50"
                   >
                     <ExternalLink size={14} />
-                    Abrir certificado
+                    {t.certifications.viewCert}
                   </a>
                 </div>
 
