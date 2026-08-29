@@ -168,7 +168,7 @@ export default function ProjectsSection() {
                 </div>
                 <div className="absolute bottom-4 left-8">
                   <span className="text-[9px] font-bold tracking-[0.2em] uppercase text-zinc-400 dark:text-white/40">
-                    B2B Revenue Recovery SaaS
+                    syraxautomation.com
                   </span>
                 </div>
               </div>
@@ -206,7 +206,7 @@ export default function ProjectsSection() {
 
                 <div className="flex items-center gap-3 flex-wrap">
                   <a
-                    href={synrax.github}
+                    href={synrax.url}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="
@@ -217,7 +217,7 @@ export default function ProjectsSection() {
                       dark:hover:bg-cyan-500/[0.18] dark:hover:border-cyan-500/50
                     "
                   >
-                    <GitHubIcon size={14} />
+                    <ExternalLink size={14} />
                     {t.projects.synrax.cta}
                   </a>
                   <button
@@ -375,12 +375,12 @@ export default function ProjectsSection() {
                         </span>
                         <span className="text-zinc-300 dark:text-zinc-600">·</span>
                         <a
-                          href={synrax.github}
+                          href={synrax.url}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="text-[10px] text-zinc-500 dark:text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 hover:underline transition-colors duration-200"
                         >
-                          github.com/FelipeVilelaFreire/Syrax ↗
+                          syraxautomation.com ↗
                         </a>
                       </div>
                     </div>
@@ -496,7 +496,7 @@ export default function ProjectsSection() {
                 {/* Footer */}
                 <div className="flex-shrink-0 px-4 sm:px-6 py-3 sm:py-4 border-t border-black/[0.06] dark:border-white/[0.08]">
                   <a
-                    href={synrax.github}
+                    href={synrax.url}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="
@@ -507,7 +507,7 @@ export default function ProjectsSection() {
                       dark:hover:bg-cyan-500/[0.18] dark:hover:border-cyan-500/50
                     "
                   >
-                    <GitHubIcon size={14} />
+                    <ExternalLink size={14} />
                     {t.projects.synrax.cta}
                   </a>
                 </div>

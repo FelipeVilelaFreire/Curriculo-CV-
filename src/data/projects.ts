@@ -1,26 +1,26 @@
 export const synrax = {
-  url:       null as string | null,
+  url:       "https://www.syraxautomation.com/",
   github:    "https://github.com/FelipeVilelaFreire/Syrax",
-  builtWith: "Django + Next.js",
+  builtWith: "Next.js 16 + Django",
   languages: ["PT", "EN"],
-  stack: ["Django", "DRF", "Next.js", "PostgreSQL", "WhatsApp API", "Webhooks", "Tailwind CSS"],
+  stack: ["Next.js 16", "Three.js", "Django REST", "PostgreSQL", "Meta WhatsApp API", "Webhooks", "Tailwind CSS"],
   platforms: [
-    { label: "Web",        tech: "Next.js 16" },
+    { label: "Web",        tech: "Next.js 16 + Three.js Glass Flow" },
     { label: "Backend",    tech: "Django REST Framework" },
-    { label: "Automation", tech: "WhatsApp Webhooks & Pipeline" },
+    { label: "Automation", tech: "Meta WhatsApp Cloud API & Webhooks" },
     { label: "Admin",      tech: "React + Vite" },
   ],
   infra: [
+    { name: "Vercel",           role: "Web Application & Landing Page" },
     { name: "Render",           role: "Backend API Server" },
-    { name: "Vercel",           role: "Web Application" },
     { name: "PostgreSQL",       role: "Relational Database" },
-    { name: "Meta WhatsApp API", role: "Messaging Gateway" },
+    { name: "Meta WhatsApp API", role: "Messaging & Webhook Gateway" },
   ],
   stackByLayer: [
-    { layer: "Backend",     items: ["Django", "DRF", "PostgreSQL", "Webhooks"] },
-    { layer: "Web App",     items: ["Next.js 16", "React", "TypeScript", "Tailwind"] },
-    { layer: "Admin",       items: ["React", "Vite", "TypeScript"] },
-    { layer: "Automations",  items: ["WhatsApp API", "AI Assistant Engine"] },
+    { layer: "UI / Design System", items: ["GlassFlow Design System", "Three.js", "Tailwind CSS", "TypeScript"] },
+    { layer: "Web App",          items: ["Next.js 16", "React 19", "Shared-Core DTOs"] },
+    { layer: "Backend API",      items: ["Django REST Framework", "PostgreSQL", "Async Webhooks"] },
+    { layer: "Automations",       items: ["Meta WhatsApp Cloud API", "Hotmart & Kiwify Webhooks", "AI Guidance Engine"] },
   ],
 } as const;
 
@@ -30,10 +30,10 @@ export const hobbymap = {
   languages: ["PT", "EN", "DE"],
   stack: ["Next.js", "React Native", "Django", "PostGIS", "TypeScript", "AWS S3"],
   platforms: [
-    { label: "Mobile",  tech: "React Native + Expo" },
     { label: "Web",     tech: "Next.js 16"          },
+    { label: "Mobile",  tech: "React Native + Expo" },
     { label: "Admin",   tech: "React + Vite"        },
-    { label: "API",     tech: "Django + PostGIS"    },
+    { label: "Backend", tech: "Django REST + PostGIS" },
   ],
   infra: [
     { name: "Vercel",   role: "Frontend Deploy" },
