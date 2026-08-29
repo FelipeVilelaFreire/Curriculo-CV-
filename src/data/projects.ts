@@ -1,7 +1,7 @@
 export const synrax = {
   url:       "https://www.syraxautomation.com/",
   github:    "https://github.com/FelipeVilelaFreire/Syrax",
-  builtWith: "Next.js 16 + Django",
+  builtWith: "Codex",
   languages: ["PT", "EN"],
   stack: ["Next.js 16", "Three.js", "Django REST", "PostgreSQL", "Meta WhatsApp API", "Webhooks", "Tailwind CSS"],
   platforms: [

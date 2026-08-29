@@ -155,10 +155,10 @@ export default function ProjectsSection() {
             transition={{ duration: 0.65, delay: 0.15 }}
             className="mb-6"
           >
-            <GlassCard className="p-0 overflow-hidden dark:border-emerald-500/[0.22] dark:shadow-[0_0_48px_rgba(16,185,129,0.10)]">
+            <GlassCard className="p-0 overflow-hidden dark:border-amber-500/[0.28] dark:shadow-[0_0_48px_rgba(245,158,11,0.14)]">
               {/* Top gradient banner */}
-              <div className="relative w-full h-28 sm:h-40 overflow-hidden bg-gradient-to-br from-emerald-500/[0.12] via-cyan-500/[0.06] to-emerald-700/[0.08] dark:from-emerald-500/[0.30] dark:via-cyan-500/[0.18] dark:to-emerald-900/[0.32]">
-                <div className="absolute inset-0 hidden dark:block" style={{ background: "radial-gradient(ellipse 60% 80% at 50% 50%, rgba(16,185,129,0.12) 0%, transparent 70%)" }} />
+              <div className="relative w-full h-28 sm:h-40 overflow-hidden bg-gradient-to-br from-amber-500/[0.14] via-yellow-500/[0.08] to-amber-700/[0.10] dark:from-amber-500/[0.35] dark:via-yellow-500/[0.20] dark:to-amber-900/[0.35]">
+                <div className="absolute inset-0 hidden dark:block" style={{ background: "radial-gradient(ellipse 60% 80% at 50% 50%, rgba(245,158,11,0.15) 0%, transparent 70%)" }} />
                 <div className="absolute inset-0 flex items-center justify-center gap-8 opacity-20 dark:opacity-45">
                   {synrax.platforms.map(({ label }) => (
                     <span key={label} className="text-[10px] font-bold tracking-[0.25em] uppercase text-zinc-600 dark:text-white">
@@ -175,13 +175,13 @@ export default function ProjectsSection() {
 
               <div className="p-5 sm:p-8">
                 <div className="flex flex-wrap items-center gap-3 mb-3">
-                  <h3 className="text-emerald-600 dark:text-emerald-400 text-2xl font-bold tracking-tight">
+                  <h3 className="text-amber-500 dark:text-amber-400 text-2xl font-bold tracking-tight">
                     Synrax
                   </h3>
                   <span className="px-2.5 py-0.5 rounded-full bg-cyan-100 border border-cyan-300/70 text-cyan-700 dark:bg-cyan-500/10 dark:border-cyan-500/30 dark:text-cyan-400 text-xs transition-colors duration-300">
                     {t.projects.featured}
                   </span>
-                  <span className="px-2.5 py-0.5 rounded-full bg-emerald-100 border border-emerald-300/70 text-emerald-700 dark:bg-emerald-500/10 dark:border-emerald-500/30 dark:text-emerald-400 text-xs transition-colors duration-300">
+                  <span className="px-2.5 py-0.5 rounded-full bg-amber-100 border border-amber-300/70 text-amber-800 dark:bg-amber-500/10 dark:border-amber-500/30 dark:text-amber-400 text-xs transition-colors duration-300">
                     SaaS / B2B
                   </span>
                 </div>
@@ -196,8 +196,8 @@ export default function ProjectsSection() {
 
                 <div className="mb-6">
                   <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-semibold
-                    bg-emerald-50 border border-emerald-300/80 text-emerald-700
-                    dark:bg-emerald-500/[0.07] dark:border-emerald-500/[0.30] dark:text-emerald-300
+                    bg-amber-50 border border-amber-300/80 text-amber-800
+                    dark:bg-amber-500/[0.08] dark:border-amber-500/[0.35] dark:text-amber-300
                     transition-colors duration-300">
                     <Bot size={11} />
                     {t.projects.builtWith} {synrax.builtWith}
@@ -369,8 +369,8 @@ export default function ProjectsSection() {
                         Synrax
                       </p>
                       <div className="flex items-center gap-2 mt-0.5">
-                        <span className="flex items-center gap-1 text-[10px] font-semibold text-emerald-600 dark:text-emerald-400">
-                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                        <span className="flex items-center gap-1 text-[10px] font-semibold text-amber-600 dark:text-amber-400">
+                          <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
                           B2B SaaS Platform
                         </span>
                         <span className="text-zinc-300 dark:text-zinc-600">·</span>
@@ -434,7 +434,7 @@ export default function ProjectsSection() {
                             className="flex items-center gap-3 p-3 rounded-xl bg-zinc-50 border border-zinc-200/60 dark:bg-white/[0.04] dark:border-white/[0.10] transition-colors duration-300"
                           >
                             <div className="w-8 h-8 rounded-lg bg-white border border-zinc-200 dark:bg-white/[0.08] dark:border-white/[0.15] flex items-center justify-center flex-shrink-0 transition-colors duration-300">
-                              <Icon size={14} className="text-emerald-600 dark:text-emerald-400" />
+                              <Icon size={14} className="text-amber-500 dark:text-amber-400" />
                             </div>
                             <div className="min-w-0">
                               <p className="text-zinc-900 dark:text-white text-xs font-semibold leading-tight transition-colors duration-300">{label}</p>
@@ -450,7 +450,7 @@ export default function ProjectsSection() {
                   <div>
                     <SectionLabel>{t.projects.synrax.modal.architecture}</SectionLabel>
                     <div className="flex items-start gap-3 p-4 rounded-xl bg-zinc-50 border border-zinc-200/60 dark:bg-white/[0.04] dark:border-white/[0.10] transition-colors duration-300">
-                      <Package size={16} className="text-emerald-500 flex-shrink-0 mt-0.5" />
+                      <Package size={16} className="text-amber-500 flex-shrink-0 mt-0.5" />
                       <p className="text-zinc-600 dark:text-zinc-300 text-sm leading-relaxed transition-colors duration-300">
                         {t.projects.synrax.modal.archDesc}
                       </p>

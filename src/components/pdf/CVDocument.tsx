@@ -368,9 +368,9 @@ export default function CVDocument({ t, photoUrl, baseUrl }: Props) {
               {/* Synrax */}
               <View style={s.projItem} wrap={false}>
                 <View style={s.projTop}>
-                  <Link src={synrax.github} style={s.projName}>Synrax</Link>
+                  <Link src={synrax.url} style={s.projName}>Synrax</Link>
                   <View style={s.projBadges}>
-                    <Text style={[s.projBadge, { color: C.green,  backgroundColor: C.greenBg  }]}>SaaS / B2B</Text>
+                    <Text style={[s.projBadge, { color: C.orange, backgroundColor: C.orangeBg }]}>SaaS / B2B</Text>
                     <Text style={[s.projBadge, { color: C.orange, backgroundColor: C.orangeBg }]}>
                       {t.projects.builtWith} {synrax.builtWith}
                     </Text>
