@@ -1,3 +1,29 @@
+export const synrax = {
+  url:       null as string | null,
+  github:    "https://github.com/FelipeVilelaFreire/Syrax",
+  builtWith: "Django + Next.js",
+  languages: ["PT", "EN"],
+  stack: ["Django", "DRF", "Next.js", "PostgreSQL", "WhatsApp API", "Webhooks", "Tailwind CSS"],
+  platforms: [
+    { label: "Web",        tech: "Next.js 16" },
+    { label: "Backend",    tech: "Django REST Framework" },
+    { label: "Automation", tech: "WhatsApp Webhooks & Pipeline" },
+    { label: "Admin",      tech: "React + Vite" },
+  ],
+  infra: [
+    { name: "Render",           role: "Backend API Server" },
+    { name: "Vercel",           role: "Web Application" },
+    { name: "PostgreSQL",       role: "Relational Database" },
+    { name: "Meta WhatsApp API", role: "Messaging Gateway" },
+  ],
+  stackByLayer: [
+    { layer: "Backend",     items: ["Django", "DRF", "PostgreSQL", "Webhooks"] },
+    { layer: "Web App",     items: ["Next.js 16", "React", "TypeScript", "Tailwind"] },
+    { layer: "Admin",       items: ["React", "Vite", "TypeScript"] },
+    { layer: "Automations",  items: ["WhatsApp API", "AI Assistant Engine"] },
+  ],
+} as const;
+
 export const hobbymap = {
   url:       "https://hobbymap.com.br",
   builtWith: "Claude Code",
@@ -38,3 +64,4 @@ export const sonho = {
   github: "https://github.com/FelipeVilelaFreire/SonhodosPes",
   stack:  ["Vanilla JS", "PWA", "Service Worker", "IndexedDB", "Vercel Serverless", "Google Sheets API"],
 } as const;
+

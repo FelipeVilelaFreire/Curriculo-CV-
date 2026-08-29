@@ -46,6 +46,21 @@ export interface Messages {
     personal:     string;
     viewDetails:  string;
     builtWith:    string;
+    synrax: {
+      subtitle:         string;
+      description:      string;
+      modalDescription: string;
+      cta:              string;
+      modal: {
+        whatIs:       string;
+        platforms:    string;
+        architecture: string;
+        archDesc:     string;
+        infra:        string;
+        stack:        string;
+        languages:    string;
+      };
+    };
     hobbymap: {
       description:      string;
       modalDescription: string;
@@ -96,7 +111,7 @@ export const messages: Record<Locale, Messages> = {
       open: "Open",
     },
     langs: {
-      german:     { name: "Deutsch",   level: "—",     note: "" },
+      german:     { name: "Deutsch",   level: "A1",    note: "" },
       english:    { name: "English",   level: "B2",    note: "TOEFL 78/120" },
       spanish:    { name: "Español",   level: "A1",    note: "" },
       portuguese: { name: "Português", level: "Native", note: "" },
@@ -132,6 +147,21 @@ export const messages: Record<Locale, Messages> = {
       personal:     "Personal",
       viewDetails:  "Details",
       builtWith:    "Built with",
+      synrax: {
+        subtitle:         "SaaS Revenue Recovery & Automation Platform",
+        description:      "B2B SaaS platform designed to automate customer recovery workflows and improve revenue retention through intelligent communication and automation.",
+        modalDescription: "Synrax ingests checkout and payment webhooks from sales platforms like Hotmart and Kiwify, converting raw transaction events into operational recovery leads. The system evaluates operational lead scoring, executes automated multi-stage messaging workflows via WhatsApp and email, and provides an optimized operator queue with AI-assisted guidance to recover lost digital sales.",
+        cta:              "View Repository",
+        modal: {
+          whatIs:       "What is it",
+          platforms:    "Core Modules",
+          architecture: "Backend & Event Architecture",
+          archDesc:     "Event-driven Django REST backend receiving asynchronous webhooks, calculating lead priority in real-time, and orchestrating multi-stage WhatsApp messaging pipelines.",
+          infra:        "Infrastructure & Gateway",
+          stack:        "Tech Stack",
+          languages:    "Available Languages",
+        },
+      },
       hobbymap: {
         description:      "SaaS platform for instructors and venues to showcase their services — and for people to discover and practice hobbies near home.",
         modalDescription: "HobbyMap tackles the fragmentation of independent instruction. Instructors get a professional public profile, smart scheduling, and a training library to prescribe workouts and study plans. Students book sessions (in-person or remote), track their progress, and submit video for remote coaching. Venues register their spaces and list the benefit plans they accept (Wellhub, TotalPass, ClassPass) — so users can filter and find exactly where to train with their plan. Think Airbnb discovery + gym CRM + Strava progress tracking — all in one platform. The /explore page is the front door: search by activity, location, and benefit plan.",
@@ -186,7 +216,7 @@ export const messages: Record<Locale, Messages> = {
       open: "Abrir",
     },
     langs: {
-      german:     { name: "Alemão",    level: "—",      note: "" },
+      german:     { name: "Alemão",    level: "A1",     note: "" },
       english:    { name: "Inglês",    level: "B2",     note: "TOEFL 78/120" },
       spanish:    { name: "Espanhol",  level: "A1",     note: "" },
       portuguese: { name: "Português", level: "Nativo", note: "" },
@@ -222,6 +252,21 @@ export const messages: Record<Locale, Messages> = {
       personal:     "Pessoal",
       viewDetails:  "Detalhes",
       builtWith:    "Feito com",
+      synrax: {
+        subtitle:         "Plataforma SaaS de Recuperação de Receita & Automação",
+        description:      "Plataforma SaaS B2B desenvolvida para automatizar fluxos de recuperação de clientes e aumentar a retenção de receita através de comunicação inteligente e automação.",
+        modalDescription: "O Synrax processa webhooks de eventos de checkout e pagamento de plataformas como Hotmart e Kiwify, transformando eventos de vendas em leads operacionais de recuperação. O sistema calcula a prioridade operacional do lead, executa automações via WhatsApp e e-mail, e fornece uma fila otimizada com suporte a IA assistida para os operadores converterem vendas digitais perdidas.",
+        cta:              "Ver Repositório",
+        modal: {
+          whatIs:       "O que é",
+          platforms:    "Módulos Principais",
+          architecture: "Arquitetura Backend & Eventos",
+          archDesc:     "Backend orientada a eventos em Django REST que recebe webhooks assíncronos, calcula prioridade em tempo real e dispara pipelines de mensagens no WhatsApp.",
+          infra:        "Infraestrutura & Gateway",
+          stack:        "Stack Completa",
+          languages:    "Idiomas Disponíveis",
+        },
+      },
       hobbymap: {
         description:      "SaaS para instrutores e estabelecimentos divulgarem seus serviços — e para pessoas descobrirem e praticarem hobbies perto de casa.",
         modalDescription: "O HobbyMap resolve a fragmentação do ensino autônomo. Instrutores ganham perfil profissional público, agenda inteligente e uma biblioteca de treinos para prescrever exercícios e planos de estudo. Alunos agendam aulas (presenciais ou online), acompanham sua evolução e enviam vídeos para correção remota. Estabelecimentos cadastram seus espaços e os planos aceitos (Wellhub, TotalPass, ClassPass) — para que usuários filtrem e encontrem exatamente onde praticar com seu plano de benefício. Pense na descoberta do Airbnb + CRM de academia + tracking do Strava — tudo em um só lugar. A página /explore é a porta de entrada: busque por atividade, localização e plano de benefício.",
@@ -276,7 +321,7 @@ export const messages: Record<Locale, Messages> = {
       open: "Öffnen",
     },
     langs: {
-      german:     { name: "Deutsch",       level: "—",           note: "" },
+      german:     { name: "Deutsch",       level: "A1",          note: "" },
       english:    { name: "Englisch",      level: "B2",          note: "TOEFL 78/120" },
       spanish:    { name: "Spanisch",      level: "A1",          note: "" },
       portuguese: { name: "Portugiesisch", level: "Muttersprache", note: "" },
@@ -312,6 +357,21 @@ export const messages: Record<Locale, Messages> = {
       personal:     "Persönlich",
       viewDetails:  "Details",
       builtWith:    "Gebaut mit",
+      synrax: {
+        subtitle:         "SaaS-Plattform für Umsatzzurückgewinnung & Automatisierung",
+        description:      "B2B-SaaS-Plattform zur Automatisierung von Kundenrückgewinnungs-Workflows und zur Verbesserung der Umsatzerhaltung durch intelligente Kommunikation.",
+        modalDescription: "Synrax verarbeitet Checkout- und Zahlungsevent-Webhooks von Plattformen wie Hotmart und Kiwify und wandelt Rohverkaufsdaten in operative Rückgewinnungs-Leads um. Das System berechnet die operative Priorität, führt WhatsApp- und E-Mail-Workflows aus und unterstützt Operatoren mit KI-gestützten Warteschlangen.",
+        cta:              "Repository ansehen",
+        modal: {
+          whatIs:       "Was ist es",
+          platforms:    "Kernmodule",
+          architecture: "Backend- & Event-Architektur",
+          archDesc:     "Ereignisgesteuertes Django-REST-Backend, das asynchrone Webhooks empfängt, Lead-Scoring in Echtzeit berechnet und mehrstufige WhatsApp-Nachrichten-Pipelines auslöst.",
+          infra:        "Infrastruktur & Gateway",
+          stack:        "Tech-Stack",
+          languages:    "Verfügbare Sprachen",
+        },
+      },
       hobbymap: {
         description:      "SaaS-Plattform für Trainer und Sportstätten, um ihre Dienste anzubieten — und für Menschen, Hobbys in der Nähe zu entdecken und auszuüben.",
         modalDescription: "HobbyMap löst die Fragmentierung des unabhängigen Unterrichts. Trainer erhalten ein öffentliches Profil, intelligente Terminplanung und eine Trainingsbibliothek für Workouts und Lernpläne. Schüler buchen Einheiten (vor Ort oder online), verfolgen ihren Fortschritt und senden Videos zur Fernkorrektur. Sportstätten registrieren ihre Räume und die akzeptierten Benefit-Pläne (Wellhub, TotalPass, ClassPass) — damit Nutzer filtern und genau herausfinden, wo sie mit ihrem Plan trainieren können. Denk an Airbnbs Entdeckung + Gym-CRM + Stravas Fortschritts-Tracking — alles in einem. Die /explore-Seite ist der Einstieg: suche nach Aktivität, Standort und Benefit-Plan.",
@@ -366,7 +426,7 @@ export const messages: Record<Locale, Messages> = {
       open: "Abrir",
     },
     langs: {
-      german:     { name: "Alemán",    level: "—",      note: "" },
+      german:     { name: "Alemán",    level: "A1",     note: "" },
       english:    { name: "Inglés",    level: "B2",     note: "TOEFL 78/120" },
       spanish:    { name: "Español",   level: "A1",     note: "" },
       portuguese: { name: "Portugués", level: "Nativo", note: "" },
@@ -402,6 +462,21 @@ export const messages: Record<Locale, Messages> = {
       personal:     "Personal",
       viewDetails:  "Detalles",
       builtWith:    "Construido con",
+      synrax: {
+        subtitle:         "Plataforma SaaS de Recuperación de Ingresos y Automatización",
+        description:      "Plataforma SaaS B2B diseñada para automatizar flujos de recuperación de clientes y mejorar la retención de ingresos mediante comunicación inteligente y automatización.",
+        modalDescription: "Synrax procesa webhooks de eventos de pago de plataformas como Hotmart y Kiwify, transformando datos en leads operativos de recuperación. Calcula la prioridad operativa, ejecuta automatizaciones por WhatsApp y correo electrónico, y ofrece una cola optimizada con asistencia de IA.",
+        cta:              "Ver Repositorio",
+        modal: {
+          whatIs:       "Qué es",
+          platforms:    "Módulos Principales",
+          architecture: "Arquitectura Backend & Eventos",
+          archDesc:     "Backend guiado por eventos en Django REST que recibe webhooks asíncronos, calcula scoring de leads en tiempo real y dispara pipelines de mensajes en múltiples etapas.",
+          infra:        "Infraestructura & Gateway",
+          stack:        "Stack Completo",
+          languages:    "Idiomas Disponibles",
+        },
+      },
       hobbymap: {
         description:      "SaaS para instructores y espacios que divulgan sus servicios — y para que las personas descubran y practiquen hobbies cerca de casa.",
         modalDescription: "HobbyMap resuelve la fragmentación de la instrucción independiente. Los instructores obtienen un perfil profesional público, agenda inteligente y una biblioteca de entrenamientos para prescribir ejercicios y planes de estudio. Los alumnos reservan clases (presenciales u online), siguen su evolución y envían videos para corrección remota. Los establecimientos registran sus espacios y los planes aceptados (Wellhub, TotalPass, ClassPass) — para que los usuarios filtren y encuentren exactamente dónde entrenar con su plan. Piensa en el descubrimiento de Airbnb + CRM de gimnasio + tracking de Strava — todo en uno. La página /explore es la puerta de entrada: busca por actividad, ubicación y plan de beneficio.",

@@ -10,8 +10,8 @@ export default function LanguagesSection() {
   const { t } = useLanguage();
 
   const items = [
-    // { key: "german" as const, code: "DE" }, // sem certificação por enquanto
     { key: "english" as const,    code: "EN" },
+    { key: "german" as const,     code: "DE" },
     { key: "portuguese" as const, code: "PT" },
     { key: "spanish" as const,    code: "ES" },
   ] as const;
@@ -28,7 +28,7 @@ export default function LanguagesSection() {
             {t.sections.languages}
           </motion.p>
 
-          <div className="grid grid-cols-3 gap-3 sm:gap-4 items-stretch">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 items-stretch">
             {items.map(({ key, code }, i) => {
               const lang = t.langs[key];
               return (

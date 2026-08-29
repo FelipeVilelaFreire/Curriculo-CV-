@@ -2,16 +2,17 @@
 import { useRef, useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { motion, useInView, AnimatePresence } from "framer-motion";
-import { ExternalLink, ArrowUpRight, X, Smartphone, Globe, LayoutDashboard, Server, Package, Bot } from "lucide-react";
+import { ExternalLink, ArrowUpRight, X, Smartphone, Globe, LayoutDashboard, Server, Package, Bot, Zap } from "lucide-react";
 import Image from "next/image";
 import GlassCard from "@/components/ui/GlassCard";
 import { GitHubIcon } from "@/components/ui/SocialIcons";
 import { useLanguage } from "@/lib/LanguageContext";
-import { hobbymap, prognum, sonho } from "@/data/projects";
+import { hobbymap, prognum, sonho, synrax } from "@/data/projects";
 import { personal } from "@/data/personal";
 import { logos } from "@/assets/logos";
 
-const PLATFORM_ICONS = [Smartphone, Globe, LayoutDashboard, Server] as const;
+const HOBBYMAP_PLATFORM_ICONS = [Smartphone, Globe, LayoutDashboard, Server] as const;
+const SYNRAX_PLATFORM_ICONS = [Globe, Server, Zap, LayoutDashboard] as const;
 
 function Tag({ children }: { children: string }) {
   return (
@@ -41,7 +42,7 @@ export default function ProjectsSection() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
   const { t } = useLanguage();
-  const [modalOpen, setModalOpen] = useState(false);
+  const [activeModal, setActiveModal] = useState<"synrax" | "hobbymap" | null>(null);
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
 
@@ -62,7 +63,7 @@ export default function ProjectsSection() {
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.65, delay: 0.1 }}
+            transition={{ duration: 0.65, delay: 0.05 }}
             className="mb-6"
           >
             <GlassCard className="p-0 overflow-hidden dark:border-[#C63FE8]/[0.22] dark:shadow-[0_0_48px_rgba(198,63,232,0.10)]">
@@ -135,7 +136,92 @@ export default function ProjectsSection() {
                     {t.projects.hobbymap.cta}
                   </a>
                   <button
-                    onClick={() => setModalOpen(true)}
+                    onClick={() => setActiveModal("hobbymap")}
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-medium text-sm transition-all duration-300
+                      border border-zinc-200 text-zinc-600 hover:border-zinc-300 hover:bg-zinc-50
+                      dark:border-white/[0.12] dark:text-zinc-400 dark:hover:border-white/[0.22] dark:hover:bg-white/[0.05]"
+                  >
+                    {t.projects.viewDetails}
+                  </button>
+                </div>
+              </div>
+            </GlassCard>
+          </motion.div>
+
+          {/* ── Synrax featured ── */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.65, delay: 0.15 }}
+            className="mb-6"
+          >
+            <GlassCard className="p-0 overflow-hidden dark:border-emerald-500/[0.22] dark:shadow-[0_0_48px_rgba(16,185,129,0.10)]">
+              {/* Top gradient banner */}
+              <div className="relative w-full h-28 sm:h-40 overflow-hidden bg-gradient-to-br from-emerald-500/[0.12] via-cyan-500/[0.06] to-emerald-700/[0.08] dark:from-emerald-500/[0.30] dark:via-cyan-500/[0.18] dark:to-emerald-900/[0.32]">
+                <div className="absolute inset-0 hidden dark:block" style={{ background: "radial-gradient(ellipse 60% 80% at 50% 50%, rgba(16,185,129,0.12) 0%, transparent 70%)" }} />
+                <div className="absolute inset-0 flex items-center justify-center gap-8 opacity-20 dark:opacity-45">
+                  {synrax.platforms.map(({ label }) => (
+                    <span key={label} className="text-[10px] font-bold tracking-[0.25em] uppercase text-zinc-600 dark:text-white">
+                      {label}
+                    </span>
+                  ))}
+                </div>
+                <div className="absolute bottom-4 left-8">
+                  <span className="text-[9px] font-bold tracking-[0.2em] uppercase text-zinc-400 dark:text-white/40">
+                    B2B Revenue Recovery SaaS
+                  </span>
+                </div>
+              </div>
+
+              <div className="p-5 sm:p-8">
+                <div className="flex flex-wrap items-center gap-3 mb-3">
+                  <h3 className="text-emerald-600 dark:text-emerald-400 text-2xl font-bold tracking-tight">
+                    Synrax
+                  </h3>
+                  <span className="px-2.5 py-0.5 rounded-full bg-cyan-100 border border-cyan-300/70 text-cyan-700 dark:bg-cyan-500/10 dark:border-cyan-500/30 dark:text-cyan-400 text-xs transition-colors duration-300">
+                    {t.projects.featured}
+                  </span>
+                  <span className="px-2.5 py-0.5 rounded-full bg-emerald-100 border border-emerald-300/70 text-emerald-700 dark:bg-emerald-500/10 dark:border-emerald-500/30 dark:text-emerald-400 text-xs transition-colors duration-300">
+                    SaaS / B2B
+                  </span>
+                </div>
+
+                <p className="text-zinc-500 dark:text-zinc-300 text-sm leading-relaxed max-w-2xl mb-5 transition-colors duration-300">
+                  {t.projects.synrax.description}
+                </p>
+
+                <div className="flex flex-wrap gap-2 mb-3">
+                  {synrax.stack.map((tech) => <Tag key={tech}>{tech}</Tag>)}
+                </div>
+
+                <div className="mb-6">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-semibold
+                    bg-emerald-50 border border-emerald-300/80 text-emerald-700
+                    dark:bg-emerald-500/[0.07] dark:border-emerald-500/[0.30] dark:text-emerald-300
+                    transition-colors duration-300">
+                    <Bot size={11} />
+                    {t.projects.builtWith} {synrax.builtWith}
+                  </span>
+                </div>
+
+                <div className="flex items-center gap-3 flex-wrap">
+                  <a
+                    href={synrax.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="
+                      inline-flex items-center gap-2 px-6 py-2.5 rounded-xl font-medium text-sm transition-all duration-300
+                      bg-cyan-50 border border-cyan-300/70 text-cyan-700
+                      hover:bg-cyan-100 hover:border-cyan-400/70
+                      dark:bg-cyan-500/[0.10] dark:border-cyan-500/30 dark:text-cyan-400
+                      dark:hover:bg-cyan-500/[0.18] dark:hover:border-cyan-500/50
+                    "
+                  >
+                    <GitHubIcon size={14} />
+                    {t.projects.synrax.cta}
+                  </a>
+                  <button
+                    onClick={() => setActiveModal("synrax")}
                     className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-medium text-sm transition-all duration-300
                       border border-zinc-200 text-zinc-600 hover:border-zinc-300 hover:bg-zinc-50
                       dark:border-white/[0.12] dark:text-zinc-400 dark:hover:border-white/[0.22] dark:hover:bg-white/[0.05]"
@@ -247,189 +333,368 @@ export default function ProjectsSection() {
         </div>
       </section>
 
-      {/* ── HobbyMap Modal — portaled above navbar ── */}
+      {/* ── Modals — portaled above navbar ── */}
       {mounted && createPortal(
-      <AnimatePresence>
-        {modalOpen && (
-          <div className="fixed inset-0 z-[200] flex items-center justify-center px-4">
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.25 }}
-              onClick={() => setModalOpen(false)}
-              className="absolute inset-0 bg-black/55 backdrop-blur-md"
-            />
+        <AnimatePresence>
+          {activeModal === "synrax" && (
+            <div className="fixed inset-0 z-[200] flex items-center justify-center px-4">
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.25 }}
+                onClick={() => setActiveModal(null)}
+                className="absolute inset-0 bg-black/55 backdrop-blur-md"
+              />
 
-            <motion.div
-              initial={{ opacity: 0, scale: 0.93, y: 24 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.93, y: 24 }}
-              transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="
-                relative z-10 w-full max-w-2xl max-h-[88vh] flex flex-col
-                rounded-2xl overflow-hidden
-                bg-white/97 dark:bg-[#0d0d0d]/97
-                border border-black/[0.08] dark:border-white/[0.14]
-                shadow-[0_24px_80px_rgba(0,0,0,0.22)] dark:shadow-[0_24px_80px_rgba(0,0,0,0.7)]
-                backdrop-blur-2xl
-              "
-            >
-              {/* Header */}
-              <div className="flex items-center justify-between px-4 sm:px-6 py-3 sm:py-4 border-b border-black/[0.06] dark:border-white/[0.08] flex-shrink-0">
-                <div className="flex items-center gap-3">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.93, y: 24 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.93, y: 24 }}
+                transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
+                className="
+                  relative z-10 w-full max-w-2xl max-h-[88vh] flex flex-col
+                  rounded-2xl overflow-hidden
+                  bg-white/97 dark:bg-[#0d0d0d]/97
+                  border border-black/[0.08] dark:border-white/[0.14]
+                  shadow-[0_24px_80px_rgba(0,0,0,0.22)] dark:shadow-[0_24px_80px_rgba(0,0,0,0.7)]
+                  backdrop-blur-2xl
+                "
+              >
+                {/* Header */}
+                <div className="flex items-center justify-between px-4 sm:px-6 py-3 sm:py-4 border-b border-black/[0.06] dark:border-white/[0.08] flex-shrink-0">
+                  <div className="flex items-center gap-3">
+                    <div>
+                      <p className="text-zinc-900 dark:text-white font-bold text-base leading-tight transition-colors duration-300">
+                        Synrax
+                      </p>
+                      <div className="flex items-center gap-2 mt-0.5">
+                        <span className="flex items-center gap-1 text-[10px] font-semibold text-emerald-600 dark:text-emerald-400">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                          B2B SaaS Platform
+                        </span>
+                        <span className="text-zinc-300 dark:text-zinc-600">·</span>
+                        <a
+                          href={synrax.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-[10px] text-zinc-500 dark:text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 hover:underline transition-colors duration-200"
+                        >
+                          github.com/FelipeVilelaFreire/Syrax ↗
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <button
+                    onClick={() => setActiveModal(null)}
+                    className="p-1.5 rounded-lg text-zinc-400 hover:text-zinc-700 hover:bg-black/[0.05] dark:text-white/40 dark:hover:text-white dark:hover:bg-white/[0.08] transition-all duration-200"
+                  >
+                    <X size={16} />
+                  </button>
+                </div>
+
+                {/* Body — scrollable */}
+                <div className="overflow-y-auto flex-1 px-4 sm:px-6 py-4 sm:py-6 space-y-5 sm:space-y-6">
+
+                  {/* What is it */}
                   <div>
-                    <p className="text-zinc-900 dark:text-white font-bold text-base leading-tight transition-colors duration-300">
-                      HobbyMap
+                    <SectionLabel>{t.projects.synrax.modal.whatIs}</SectionLabel>
+                    <p className="text-zinc-600 dark:text-zinc-300 text-sm leading-relaxed transition-colors duration-300">
+                      {t.projects.synrax.modalDescription}
                     </p>
-                    <div className="flex items-center gap-2 mt-0.5">
-                      <span className="flex items-center gap-1 text-[10px] font-semibold text-emerald-600 dark:text-emerald-400">
-                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                        Live
-                      </span>
-                      <span className="text-zinc-300 dark:text-zinc-600">·</span>
-                      <a
-                        href={hobbymap.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-[10px] text-zinc-500 dark:text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 hover:underline transition-colors duration-200"
-                      >
-                        hobbymap.com.br ↗
-                      </a>
+                  </div>
+
+                  {/* Languages */}
+                  <div>
+                    <SectionLabel>{t.projects.synrax.modal.languages}</SectionLabel>
+                    <div className="flex gap-2">
+                      {synrax.languages.map((lang) => (
+                        <span
+                          key={lang}
+                          className="px-3 py-1 rounded-lg text-xs font-bold tracking-widest
+                            bg-zinc-100 border border-zinc-200 text-zinc-600
+                            dark:bg-white/[0.06] dark:border-white/[0.15] dark:text-zinc-300
+                            transition-colors duration-300"
+                        >
+                          {lang}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Platforms */}
+                  <div>
+                    <SectionLabel>{t.projects.synrax.modal.platforms}</SectionLabel>
+                    <div className="grid grid-cols-2 gap-2.5">
+                      {synrax.platforms.map(({ label, tech }, i) => {
+                        const Icon = SYNRAX_PLATFORM_ICONS[i];
+                        return (
+                          <div
+                            key={label}
+                            className="flex items-center gap-3 p-3 rounded-xl bg-zinc-50 border border-zinc-200/60 dark:bg-white/[0.04] dark:border-white/[0.10] transition-colors duration-300"
+                          >
+                            <div className="w-8 h-8 rounded-lg bg-white border border-zinc-200 dark:bg-white/[0.08] dark:border-white/[0.15] flex items-center justify-center flex-shrink-0 transition-colors duration-300">
+                              <Icon size={14} className="text-emerald-600 dark:text-emerald-400" />
+                            </div>
+                            <div className="min-w-0">
+                              <p className="text-zinc-900 dark:text-white text-xs font-semibold leading-tight transition-colors duration-300">{label}</p>
+                              <p className="text-zinc-400 dark:text-zinc-500 text-[10px] mt-0.5 transition-colors duration-300">{tech}</p>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  {/* Architecture */}
+                  <div>
+                    <SectionLabel>{t.projects.synrax.modal.architecture}</SectionLabel>
+                    <div className="flex items-start gap-3 p-4 rounded-xl bg-zinc-50 border border-zinc-200/60 dark:bg-white/[0.04] dark:border-white/[0.10] transition-colors duration-300">
+                      <Package size={16} className="text-emerald-500 flex-shrink-0 mt-0.5" />
+                      <p className="text-zinc-600 dark:text-zinc-300 text-sm leading-relaxed transition-colors duration-300">
+                        {t.projects.synrax.modal.archDesc}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Infrastructure */}
+                  <div>
+                    <SectionLabel>{t.projects.synrax.modal.infra}</SectionLabel>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                      {synrax.infra.map(({ name, role }) => (
+                        <div
+                          key={name}
+                          className="flex items-center gap-3 p-3 rounded-xl bg-zinc-50 border border-zinc-200/60 dark:bg-white/[0.04] dark:border-white/[0.10] transition-colors duration-300"
+                        >
+                          <div className="min-w-0">
+                            <p className="text-zinc-900 dark:text-white text-xs font-semibold leading-tight transition-colors duration-300">{name}</p>
+                            <p className="text-zinc-400 dark:text-zinc-500 text-[10px] mt-0.5 transition-colors duration-300">{role}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Stack by layer */}
+                  <div>
+                    <SectionLabel>{t.projects.synrax.modal.stack}</SectionLabel>
+                    <div className="space-y-2.5">
+                      {synrax.stackByLayer.map(({ layer, items }) => (
+                        <div key={layer} className="flex items-start gap-3">
+                          <span className="text-[10px] font-bold text-zinc-400 dark:text-zinc-500 w-20 flex-shrink-0 pt-0.5 transition-colors duration-300">
+                            {layer}
+                          </span>
+                          <div className="flex flex-wrap gap-1.5">
+                            {items.map((item) => <SmallTag key={item}>{item}</SmallTag>)}
+                          </div>
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </div>
-                <button
-                  onClick={() => setModalOpen(false)}
-                  className="p-1.5 rounded-lg text-zinc-400 hover:text-zinc-700 hover:bg-black/[0.05] dark:text-white/40 dark:hover:text-white dark:hover:bg-white/[0.08] transition-all duration-200"
-                >
-                  <X size={16} />
-                </button>
-              </div>
 
-              {/* Body — scrollable */}
-              <div className="overflow-y-auto flex-1 px-4 sm:px-6 py-4 sm:py-6 space-y-5 sm:space-y-6">
-
-                {/* What is it */}
-                <div>
-                  <SectionLabel>{t.projects.hobbymap.modal.whatIs}</SectionLabel>
-                  <p className="text-zinc-600 dark:text-zinc-300 text-sm leading-relaxed transition-colors duration-300">
-                    {t.projects.hobbymap.modalDescription}
-                  </p>
+                {/* Footer */}
+                <div className="flex-shrink-0 px-4 sm:px-6 py-3 sm:py-4 border-t border-black/[0.06] dark:border-white/[0.08]">
+                  <a
+                    href={synrax.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="
+                      w-full flex items-center justify-center gap-2 py-2.5 rounded-xl font-medium text-sm transition-all duration-300
+                      bg-cyan-50 border border-cyan-300/70 text-cyan-700
+                      hover:bg-cyan-100 hover:border-cyan-400/70
+                      dark:bg-cyan-500/[0.10] dark:border-cyan-500/30 dark:text-cyan-400
+                      dark:hover:bg-cyan-500/[0.18] dark:hover:border-cyan-500/50
+                    "
+                  >
+                    <GitHubIcon size={14} />
+                    {t.projects.synrax.cta}
+                  </a>
                 </div>
+              </motion.div>
+            </div>
+          )}
 
-                {/* Languages */}
-                <div>
-                  <SectionLabel>{t.projects.hobbymap.modal.languages}</SectionLabel>
-                  <div className="flex gap-2">
-                    {hobbymap.languages.map((lang) => (
-                      <span
-                        key={lang}
-                        className="px-3 py-1 rounded-lg text-xs font-bold tracking-widest
-                          bg-zinc-100 border border-zinc-200 text-zinc-600
-                          dark:bg-white/[0.06] dark:border-white/[0.15] dark:text-zinc-300
-                          transition-colors duration-300"
-                      >
-                        {lang}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+          {activeModal === "hobbymap" && (
+            <div className="fixed inset-0 z-[200] flex items-center justify-center px-4">
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.25 }}
+                onClick={() => setActiveModal(null)}
+                className="absolute inset-0 bg-black/55 backdrop-blur-md"
+              />
 
-                {/* Platforms */}
-                <div>
-                  <SectionLabel>{t.projects.hobbymap.modal.platforms}</SectionLabel>
-                  <div className="grid grid-cols-2 gap-2.5">
-                    {hobbymap.platforms.map(({ label, tech }, i) => {
-                      const Icon = PLATFORM_ICONS[i];
-                      return (
-                        <div
-                          key={label}
-                          className="flex items-center gap-3 p-3 rounded-xl bg-zinc-50 border border-zinc-200/60 dark:bg-white/[0.04] dark:border-white/[0.10] transition-colors duration-300"
+              <motion.div
+                initial={{ opacity: 0, scale: 0.93, y: 24 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.93, y: 24 }}
+                transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
+                className="
+                  relative z-10 w-full max-w-2xl max-h-[88vh] flex flex-col
+                  rounded-2xl overflow-hidden
+                  bg-white/97 dark:bg-[#0d0d0d]/97
+                  border border-black/[0.08] dark:border-white/[0.14]
+                  shadow-[0_24px_80px_rgba(0,0,0,0.22)] dark:shadow-[0_24px_80px_rgba(0,0,0,0.7)]
+                  backdrop-blur-2xl
+                "
+              >
+                {/* Header */}
+                <div className="flex items-center justify-between px-4 sm:px-6 py-3 sm:py-4 border-b border-black/[0.06] dark:border-white/[0.08] flex-shrink-0">
+                  <div className="flex items-center gap-3">
+                    <div>
+                      <p className="text-zinc-900 dark:text-white font-bold text-base leading-tight transition-colors duration-300">
+                        HobbyMap
+                      </p>
+                      <div className="flex items-center gap-2 mt-0.5">
+                        <span className="flex items-center gap-1 text-[10px] font-semibold text-emerald-600 dark:text-emerald-400">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                          Live
+                        </span>
+                        <span className="text-zinc-300 dark:text-zinc-600">·</span>
+                        <a
+                          href={hobbymap.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-[10px] text-zinc-500 dark:text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 hover:underline transition-colors duration-200"
                         >
-                          <div className="w-8 h-8 rounded-lg bg-white border border-zinc-200 dark:bg-white/[0.08] dark:border-white/[0.15] flex items-center justify-center flex-shrink-0 transition-colors duration-300">
-                            <Icon size={14} className="text-zinc-500 dark:text-zinc-400" />
-                          </div>
-                          <div className="min-w-0">
-                            <p className="text-zinc-900 dark:text-white text-xs font-semibold leading-tight transition-colors duration-300">{label}</p>
-                            <p className="text-zinc-400 dark:text-zinc-500 text-[10px] mt-0.5 transition-colors duration-300">{tech}</p>
-                          </div>
-                        </div>
-                      );
-                    })}
+                          hobbymap.com.br ↗
+                        </a>
+                      </div>
+                    </div>
                   </div>
+                  <button
+                    onClick={() => setActiveModal(null)}
+                    className="p-1.5 rounded-lg text-zinc-400 hover:text-zinc-700 hover:bg-black/[0.05] dark:text-white/40 dark:hover:text-white dark:hover:bg-white/[0.08] transition-all duration-200"
+                  >
+                    <X size={16} />
+                  </button>
                 </div>
 
-                {/* Architecture */}
-                <div>
-                  <SectionLabel>{t.projects.hobbymap.modal.architecture}</SectionLabel>
-                  <div className="flex items-start gap-3 p-4 rounded-xl bg-zinc-50 border border-zinc-200/60 dark:bg-white/[0.04] dark:border-white/[0.10] transition-colors duration-300">
-                    <Package size={16} className="text-[#C63FE8] flex-shrink-0 mt-0.5" />
+                {/* Body — scrollable */}
+                <div className="overflow-y-auto flex-1 px-4 sm:px-6 py-4 sm:py-6 space-y-5 sm:space-y-6">
+
+                  {/* What is it */}
+                  <div>
+                    <SectionLabel>{t.projects.hobbymap.modal.whatIs}</SectionLabel>
                     <p className="text-zinc-600 dark:text-zinc-300 text-sm leading-relaxed transition-colors duration-300">
-                      {t.projects.hobbymap.modal.archDesc}
+                      {t.projects.hobbymap.modalDescription}
                     </p>
                   </div>
-                </div>
 
-                {/* Infrastructure */}
-                <div>
-                  <SectionLabel>{t.projects.hobbymap.modal.infra}</SectionLabel>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                    {hobbymap.infra.map(({ name, role }) => (
-                      <div
-                        key={name}
-                        className="flex items-center gap-3 p-3 rounded-xl bg-zinc-50 border border-zinc-200/60 dark:bg-white/[0.04] dark:border-white/[0.10] transition-colors duration-300"
-                      >
-                        <div className="min-w-0">
-                          <p className="text-zinc-900 dark:text-white text-xs font-semibold leading-tight transition-colors duration-300">{name}</p>
-                          <p className="text-zinc-400 dark:text-zinc-500 text-[10px] mt-0.5 transition-colors duration-300">{role}</p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Stack by layer */}
-                <div>
-                  <SectionLabel>{t.projects.hobbymap.modal.stack}</SectionLabel>
-                  <div className="space-y-2.5">
-                    {hobbymap.stackByLayer.map(({ layer, items }) => (
-                      <div key={layer} className="flex items-start gap-3">
-                        <span className="text-[10px] font-bold text-zinc-400 dark:text-zinc-500 w-14 flex-shrink-0 pt-0.5 transition-colors duration-300">
-                          {layer}
+                  {/* Languages */}
+                  <div>
+                    <SectionLabel>{t.projects.hobbymap.modal.languages}</SectionLabel>
+                    <div className="flex gap-2">
+                      {hobbymap.languages.map((lang) => (
+                        <span
+                          key={lang}
+                          className="px-3 py-1 rounded-lg text-xs font-bold tracking-widest
+                            bg-zinc-100 border border-zinc-200 text-zinc-600
+                            dark:bg-white/[0.06] dark:border-white/[0.15] dark:text-zinc-300
+                            transition-colors duration-300"
+                        >
+                          {lang}
                         </span>
-                        <div className="flex flex-wrap gap-1.5">
-                          {items.map((item) => <SmallTag key={item}>{item}</SmallTag>)}
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Platforms */}
+                  <div>
+                    <SectionLabel>{t.projects.hobbymap.modal.platforms}</SectionLabel>
+                    <div className="grid grid-cols-2 gap-2.5">
+                      {hobbymap.platforms.map(({ label, tech }, i) => {
+                        const Icon = HOBBYMAP_PLATFORM_ICONS[i];
+                        return (
+                          <div
+                            key={label}
+                            className="flex items-center gap-3 p-3 rounded-xl bg-zinc-50 border border-zinc-200/60 dark:bg-white/[0.04] dark:border-white/[0.10] transition-colors duration-300"
+                          >
+                            <div className="w-8 h-8 rounded-lg bg-white border border-zinc-200 dark:bg-white/[0.08] dark:border-white/[0.15] flex items-center justify-center flex-shrink-0 transition-colors duration-300">
+                              <Icon size={14} className="text-zinc-500 dark:text-zinc-400" />
+                            </div>
+                            <div className="min-w-0">
+                              <p className="text-zinc-900 dark:text-white text-xs font-semibold leading-tight transition-colors duration-300">{label}</p>
+                              <p className="text-zinc-400 dark:text-zinc-500 text-[10px] mt-0.5 transition-colors duration-300">{tech}</p>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  {/* Architecture */}
+                  <div>
+                    <SectionLabel>{t.projects.hobbymap.modal.architecture}</SectionLabel>
+                    <div className="flex items-start gap-3 p-4 rounded-xl bg-zinc-50 border border-zinc-200/60 dark:bg-white/[0.04] dark:border-white/[0.10] transition-colors duration-300">
+                      <Package size={16} className="text-[#C63FE8] flex-shrink-0 mt-0.5" />
+                      <p className="text-zinc-600 dark:text-zinc-300 text-sm leading-relaxed transition-colors duration-300">
+                        {t.projects.hobbymap.modal.archDesc}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Infrastructure */}
+                  <div>
+                    <SectionLabel>{t.projects.hobbymap.modal.infra}</SectionLabel>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                      {hobbymap.infra.map(({ name, role }) => (
+                        <div
+                          key={name}
+                          className="flex items-center gap-3 p-3 rounded-xl bg-zinc-50 border border-zinc-200/60 dark:bg-white/[0.04] dark:border-white/[0.10] transition-colors duration-300"
+                        >
+                          <div className="min-w-0">
+                            <p className="text-zinc-900 dark:text-white text-xs font-semibold leading-tight transition-colors duration-300">{name}</p>
+                            <p className="text-zinc-400 dark:text-zinc-500 text-[10px] mt-0.5 transition-colors duration-300">{role}</p>
+                          </div>
                         </div>
-                      </div>
-                    ))}
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Stack by layer */}
+                  <div>
+                    <SectionLabel>{t.projects.hobbymap.modal.stack}</SectionLabel>
+                    <div className="space-y-2.5">
+                      {hobbymap.stackByLayer.map(({ layer, items }) => (
+                        <div key={layer} className="flex items-start gap-3">
+                          <span className="text-[10px] font-bold text-zinc-400 dark:text-zinc-500 w-14 flex-shrink-0 pt-0.5 transition-colors duration-300">
+                            {layer}
+                          </span>
+                          <div className="flex flex-wrap gap-1.5">
+                            {items.map((item) => <SmallTag key={item}>{item}</SmallTag>)}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              {/* Footer */}
-              <div className="flex-shrink-0 px-4 sm:px-6 py-3 sm:py-4 border-t border-black/[0.06] dark:border-white/[0.08]">
-                <a
-                  href={hobbymap.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="
-                    w-full flex items-center justify-center gap-2 py-2.5 rounded-xl font-medium text-sm transition-all duration-300
-                    bg-cyan-50 border border-cyan-300/70 text-cyan-700
-                    hover:bg-cyan-100 hover:border-cyan-400/70
-                    dark:bg-cyan-500/[0.10] dark:border-cyan-500/30 dark:text-cyan-400
-                    dark:hover:bg-cyan-500/[0.18] dark:hover:border-cyan-500/50
-                  "
-                >
-                  <ExternalLink size={14} />
-                  {t.projects.hobbymap.cta}
-                </a>
-              </div>
-            </motion.div>
-          </div>
-        )}
-      </AnimatePresence>,
-      document.body
+                {/* Footer */}
+                <div className="flex-shrink-0 px-4 sm:px-6 py-3 sm:py-4 border-t border-black/[0.06] dark:border-white/[0.08]">
+                  <a
+                    href={hobbymap.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="
+                      w-full flex items-center justify-center gap-2 py-2.5 rounded-xl font-medium text-sm transition-all duration-300
+                      bg-cyan-50 border border-cyan-300/70 text-cyan-700
+                      hover:bg-cyan-100 hover:border-cyan-400/70
+                      dark:bg-cyan-500/[0.10] dark:border-cyan-500/30 dark:text-cyan-400
+                      dark:hover:bg-cyan-500/[0.18] dark:hover:border-cyan-500/50
+                    "
+                  >
+                    <ExternalLink size={14} />
+                    {t.projects.hobbymap.cta}
+                  </a>
+                </div>
+              </motion.div>
+            </div>
+          )}
+        </AnimatePresence>,
+        document.body
       )}
     </>
   );

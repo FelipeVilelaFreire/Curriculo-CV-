@@ -11,10 +11,10 @@
   "languages": {
     "sectionTitle": "Idiomas Hablados",
     "items": {
-      "german": { "name": "Alemán", "level": "A1.1", "note": "En Aprendizaje" },
-      "english": { "name": "Inglés", "level": "Fluido", "note": "C2" },
-      "spanish": { "name": "Español", "level": "Avanzado", "note": "C1" },
-      "portuguese": { "name": "Portugués", "level": "Nativo", "note": "C2" }
+      "german": { "name": "Alemán", "level": "A1", "note": "" },
+      "english": { "name": "Inglés", "level": "B2", "note": "TOEFL 78/120" },
+      "spanish": { "name": "Español", "level": "A1", "note": "" },
+      "portuguese": { "name": "Portugués", "level": "Nativo", "note": "" }
     }
   },
   "timeline": {
@@ -22,6 +22,12 @@
   },
   "projects": {
     "sectionTitle": "Proyectos",
+    "synrax": {
+      "title": "Synrax",
+      "subtitle": "Plataforma SaaS de Recuperación de Ingresos y Automatización",
+      "description": "Plataforma SaaS B2B diseñada para automatizar flujos de recuperación de clientes y mejorar la retención de ingresos mediante comunicación inteligente y automatización.",
+      "cta": "Ver Repositorio"
+    },
     "hobbymap": {
       "title": "HobbyMap",
       "cta": "Ver App en Vivo"

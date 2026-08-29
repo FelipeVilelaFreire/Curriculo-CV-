@@ -6,7 +6,7 @@ import {
 import { type Messages } from "@/lib/LanguageContext";
 import { personal, companies, toefl } from "@/data/personal";
 import { SKILL_GROUPS } from "@/data/skills";
-import { hobbymap, prognum, sonho } from "@/data/projects";
+import { hobbymap, prognum, sonho, synrax } from "@/data/projects";
 
 const C = {
   cyan:      "#06b6d4",
@@ -365,16 +365,19 @@ export default function CVDocument({ t, photoUrl, baseUrl }: Props) {
                 <Text style={s.projDesc}>{t.projects.hobbymap.description}</Text>
               </View>
 
-              {/* Sonho dos Pés */}
+              {/* Synrax */}
               <View style={s.projItem} wrap={false}>
                 <View style={s.projTop}>
-                  <Text style={s.projName}>Sonho dos Pés</Text>
-                  <Text style={[s.projBadge, { color: C.muted, backgroundColor: C.bg }]}>
-                    {t.projects.personal}
-                  </Text>
+                  <Link src={synrax.github} style={s.projName}>Synrax</Link>
+                  <View style={s.projBadges}>
+                    <Text style={[s.projBadge, { color: C.green,  backgroundColor: C.greenBg  }]}>SaaS / B2B</Text>
+                    <Text style={[s.projBadge, { color: C.orange, backgroundColor: C.orangeBg }]}>
+                      {t.projects.builtWith} {synrax.builtWith}
+                    </Text>
+                  </View>
                 </View>
-                <Text style={s.projStack}>{sonho.stack.join(" · ")}</Text>
-                <Text style={s.projDesc}>{t.projects.sonho.description}</Text>
+                <Text style={s.projStack}>{synrax.stack.join(" · ")}</Text>
+                <Text style={s.projDesc}>{t.projects.synrax.description}</Text>
               </View>
 
             </View>
@@ -394,18 +397,16 @@ export default function CVDocument({ t, photoUrl, baseUrl }: Props) {
                 <Text style={s.projDesc}>{t.projects.prognum.description}</Text>
               </View>
 
-              {/* GitHub */}
+              {/* Sonho dos Pés */}
               <View style={s.projItem} wrap={false}>
                 <View style={s.projTop}>
-                  <Text style={s.projName}>GitHub</Text>
-                  <Link
-                    src={personal.github}
-                    style={[s.projBadge, { color: C.cyan, backgroundColor: C.cyanLight }]}
-                  >
-                    github.com/FelipeVilelaFreire
-                  </Link>
+                  <Text style={s.projName}>Sonho dos Pés</Text>
+                  <Text style={[s.projBadge, { color: C.muted, backgroundColor: C.bg }]}>
+                    {t.projects.personal}
+                  </Text>
                 </View>
-                <Text style={s.projDesc}>{t.projects.github.description}</Text>
+                <Text style={s.projStack}>{sonho.stack.join(" · ")}</Text>
+                <Text style={s.projDesc}>{t.projects.sonho.description}</Text>
               </View>
 
             </View>

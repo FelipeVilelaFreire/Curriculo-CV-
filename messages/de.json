@@ -11,10 +11,10 @@
   "languages": {
     "sectionTitle": "Gesprochene Sprachen",
     "items": {
-      "german": { "name": "Deutsch", "level": "A1.1", "note": "In Ausbildung" },
-      "english": { "name": "Englisch", "level": "Fließend", "note": "C2" },
-      "spanish": { "name": "Spanisch", "level": "Fortgeschritten", "note": "C1" },
-      "portuguese": { "name": "Portugiesisch", "level": "Muttersprache", "note": "C2" }
+      "german": { "name": "Deutsch", "level": "A1", "note": "" },
+      "english": { "name": "Englisch", "level": "B2", "note": "TOEFL 78/120" },
+      "spanish": { "name": "Spanisch", "level": "A1", "note": "" },
+      "portuguese": { "name": "Portugiesisch", "level": "Muttersprache", "note": "" }
     }
   },
   "timeline": {
@@ -22,6 +22,12 @@
   },
   "projects": {
     "sectionTitle": "Projekte",
+    "synrax": {
+      "title": "Synrax",
+      "subtitle": "SaaS-Plattform für Umsatzzurückgewinnung & Automatisierung",
+      "description": "B2B-SaaS-Plattform zur Automatisierung von Kundenrückgewinnungs-Workflows und zur Verbesserung der Umsatzerhaltung durch intelligente Kommunikation.",
+      "cta": "Repository ansehen"
+    },
     "hobbymap": {
       "title": "HobbyMap",
       "cta": "Live-App öffnen"
