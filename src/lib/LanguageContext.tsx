@@ -4,6 +4,24 @@ import { personal, toefl } from "@/data/personal";
 
 export type Locale = "en" | "pt" | "de" | "es";
 
+type ProjectCaseMessages = {
+  subtitle?: string;
+  description: string;
+  modalDescription?: string;
+  cta?: string;
+  highlights?: string[];
+  modal?: {
+    whatIs?: string;
+    contributions?: string;
+    platforms?: string;
+    architecture?: string;
+    archDesc?: string;
+    infra?: string;
+    stack?: string;
+    languages?: string;
+  };
+};
+
 /* ─── Shape do dicionário ─────────────────────────────────────────────────── */
 export interface Messages {
   nav: { title: string; downloadPDF: string };
@@ -41,43 +59,21 @@ export interface Messages {
     };
   };
   projects: {
-    featured:     string;
+    featured: string;
     professional: string;
-    personal:     string;
-    viewDetails:  string;
-    builtWith:    string;
-    synrax: {
-      subtitle:         string;
-      description:      string;
-      modalDescription: string;
-      cta:              string;
-      modal: {
-        whatIs:       string;
-        platforms:    string;
-        architecture: string;
-        archDesc:     string;
-        infra:        string;
-        stack:        string;
-        languages:    string;
-      };
-    };
-    hobbymap: {
-      description:      string;
-      modalDescription: string;
-      cta:              string;
-      modal: {
-        whatIs:       string;
-        platforms:    string;
-        architecture: string;
-        archDesc:     string;
-        infra:        string;
-        stack:        string;
-        languages:    string;
-      };
-    };
+    personal: string;
+    viewDetails: string;
+    builtWith?: string;
+    detailsLabel?: string;
+    closeDetails?: string;
+    intro?: string;
+    status?: { live: string; inProgress: string };
+    hobbymap: ProjectCaseMessages;
+    royalprime: ProjectCaseMessages;
+    synrax: ProjectCaseMessages;
+    sonho: ProjectCaseMessages;
     prognum: { description: string };
-    sonho:   { description: string };
-    github:  { description: string };
+    github: { description: string };
   };
   hobbies: {
     sport:     { label: string; sublabel: string; tags: string[] };
@@ -142,49 +138,48 @@ export const messages: Record<Locale, Messages> = {
       },
     },
     projects: {
-      featured:     "Featured",
+      featured: "Featured",
       professional: "Professional",
-      personal:     "Personal",
-      viewDetails:  "Details",
-      builtWith:    "Built with",
-      synrax: {
-        subtitle:         "SaaS Revenue Recovery & Automation Platform",
-        description:      "B2B SaaS platform designed to automate customer recovery workflows and improve revenue retention through intelligent communication and sales automation.",
-        modalDescription: "Synrax (syraxautomation.com) processes checkout and payment webhooks from sales platforms like Hotmart and Kiwify, converting raw events into operational recovery leads. Featuring a custom Glass Flow design system with Three.js graphics, it calculates lead priority in real-time, executes multi-stage Meta WhatsApp Cloud API messaging workflows, and provides an operator queue with AI-assisted guidance to retain lost digital sales.",
-        cta:              "Access Live Site",
-        modal: {
-          whatIs:       "What is it",
-          platforms:    "Core Modules",
-          architecture: "Backend & Event Architecture",
-          archDesc:     "Event-driven Django REST backend receiving asynchronous webhooks, calculating lead priority in real-time, and orchestrating multi-stage Meta WhatsApp messaging pipelines.",
-          infra:        "Infrastructure & Gateways",
-          stack:        "Tech Stack & Design System",
-          languages:    "Available Languages",
-        },
-      },
+      personal: "Personal",
+      viewDetails: "View case study",
+      detailsLabel: "case study",
+      closeDetails: "Close project details",
+      intro: "Selected products that demonstrate how I approach real workflows across frontend, backend, data, and operations.",
+      status: { live: "Live", inProgress: "In development" },
       hobbymap: {
-        description:      "SaaS platform for instructors and venues to showcase their services — and for people to discover and practice hobbies near home.",
-        modalDescription: "HobbyMap tackles the fragmentation of independent instruction. Instructors get a professional public profile, smart scheduling, and a training library to prescribe workouts and study plans. Students book sessions (in-person or remote), track their progress, and submit video for remote coaching. Venues register their spaces and list the benefit plans they accept (Wellhub, TotalPass, ClassPass) — so users can filter and find exactly where to train with their plan. Think Airbnb discovery + gym CRM + Strava progress tracking — all in one platform. The /explore page is the front door: search by activity, location, and benefit plan.",
-        cta:              "Explore the Platform",
-        modal: {
-          whatIs:       "What is it",
-          platforms:    "Platforms",
-          architecture: "Architecture",
-          archDesc:     "Monorepo with @hobbymap/shared-core — a shared logic package (types, hooks, constants) consumed by both mobile and web. \"Logic Once, Render Twice.\"",
-          infra:        "Infrastructure",
-          stack:        "Tech Stack",
-          languages:    "Available Languages",
-        },
+        subtitle: "Multi-platform activity discovery and provider management product",
+        description: "A product for discovering activities and helping providers, instructors, and venues manage their digital presence and operations.",
+        modalDescription: "HobbyMap connects people who want to practice with instructors and venues that offer activities. The product combines public discovery, provider management, and account flows across web, mobile, and admin surfaces.",
+        cta: "Explore the platform",
+        highlights: ["Built the product across Next.js web, React Native mobile, and a React administrative interface.", "Structured shared client logic for contracts, API services, hooks, validation, localization, and view models.", "Developed provider-management foundations, including protected routes, profile and agenda flows, and web/mobile parity."],
+        modal: { whatIs: "Product context", contributions: "My contribution", platforms: "Product surfaces", architecture: "Architecture", archDesc: "Django is the source of truth for persistence, authorization, and validation. A shared-core package centralizes client contracts and flow logic so web and mobile render the same product behavior.", infra: "Infrastructure", stack: "Stack by layer" },
       },
-      prognum: {
-        description: "Frontend improvements to the company's web app for real estate credit simulation and proposal tracking — and an internal pipeline metrics dashboard (C6, Inter). FastAPI backend pulls data via SSH from Firebird and SQL Server, runs ETL into a local Parquet warehouse, and serves KPIs, a phase funnel with drop-off drill-down, and monthly trends.",
+      royalprime: {
+        subtitle: "E-commerce, subscriptions, and operations platform",
+        description: "An e-commerce product that brings catalog, subscriptions, checkout, orders, inventory, delivery, and administrative operations into one platform.",
+        modalDescription: "RoyalPrime is being developed as a backend-first commerce platform. Its goal is to support the full operational lifecycle, from product selection and recurring boxes to order status, stock, delivery, and administrative work.",
+        cta: "Project repository",
+        highlights: ["Designed a backend-first flow where Django owns commercial rules, persistence, authorization, and API contracts.", "Created shared contracts, API clients, hooks, mappers, and view models used by client web, mobile, and admin interfaces.", "Worked on catalog, subscription, checkout, inventory, and order-status flows with a clear separation between domain logic and rendering."],
+        modal: { whatIs: "Product context", contributions: "My contribution", platforms: "Product surfaces", architecture: "Architecture", archDesc: "The architecture separates backend business rules, shared-core contracts and flow logic, declarative configuration, and render-only interfaces. This makes the same operational behavior reusable across client web, mobile, and admin surfaces.", infra: "Deployment targets", stack: "Stack by layer" },
+      },
+      synrax: {
+        subtitle: "B2B revenue-recovery and operations SaaS",
+        description: "A SaaS platform that turns checkout and payment events into prioritized recovery workflows for digital businesses.",
+        modalDescription: "Synrax receives checkout and payment events from platforms such as Hotmart and Kiwify, turns them into operational leads, and gives teams the context needed to follow up through controlled WhatsApp and email workflows.",
+        cta: "Access the platform",
+        highlights: ["Implemented webhook-driven foundations for checkout and payment events, including idempotent lead creation and updates.", "Structured operational flows for lead lifecycle, prioritization, messaging attempts, metrics, and audit history.", "Built the product around Django REST, shared contracts and view models, responsive web, admin, and mobile mirror surfaces."],
+        modal: { whatIs: "Product context", contributions: "My contribution", platforms: "Product surfaces", architecture: "Backend and event architecture", archDesc: "An event-driven Django REST backend receives provider webhooks, creates or updates operational leads, and keeps lifecycle, permissions, automation attempts, metrics, and audit history in the product backend.", infra: "Infrastructure and gateways", stack: "Stack by layer" },
       },
       sonho: {
-        description: "Mobile-first PWA for internal use in a shoe store — built from scratch with Vanilla JS, HTML5, and CSS3, no frameworks. Sellers check prices, stock, and location in real time from their phones, including offline, with instant search, QR code scanning, Google Lens integration, and Google Sheets sync via Vercel Serverless.",
+        subtitle: "Offline-first retail operations PWA",
+        description: "An internal PWA that lets store teams look up price, stock, size, and product location from a phone, including when connectivity is unreliable.",
+        modalDescription: "Sonho dos Pés is an operational retail tool built for the sales floor. It keeps essential product information available locally, while serverless APIs synchronize product and store data with Google Sheets.",
+        cta: "View repository",
+        highlights: ["Built an offline-first PWA with IndexedDB and a Service Worker so product information remains available during connectivity failures.", "Implemented multi-term search, five-digit SKU lookup, stock-by-size visualization, barcode support, and product-location updates.", "Connected Vercel serverless functions to Google Sheets for product data, store locations, attendance queue, and prize-draw operations."],
+        modal: { whatIs: "Product context", contributions: "My contribution", platforms: "Product surfaces", architecture: "Offline architecture", archDesc: "The browser stores searchable product data in IndexedDB and uses a Service Worker for cached application assets. Serverless endpoints read and update the operational spreadsheet when a connection is available.", infra: "Infrastructure", stack: "Stack by layer" },
       },
-      github: {
-        description: "Open-source algorithms, data structures and utility libraries. Exploring CS fundamentals through practice.",
-      },
+      prognum: { description: "Frontend development for enterprise financial software, including React and TypeScript interfaces, internal API consumption, and Python data-processing scripts." },
+      github: { description: "Open-source algorithms, data structures, and utility libraries." },
     },
     hobbies: {
       sport:     { label: "Sport",        sublabel: "Physical discipline & resilience", tags: ["Soccer", "Surfing", "Volleyball", "Footvolley"] },
@@ -280,6 +275,10 @@ export const messages: Record<Locale, Messages> = {
           stack:        "Stack Completa",
           languages:    "Idiomas Disponíveis",
         },
+      },
+      royalprime: {
+        subtitle: "E-commerce, assinaturas e operação",
+        description: "Produto de e-commerce que reúne catálogo, assinaturas, checkout, pedidos, estoque, entregas e operação administrativa.",
       },
       prognum: {
         description: "Aprimoramento no frontend web da empresa para simulação e consulta de proposta de crédito imobiliário — e dashboard interno de métricas do pipeline (C6, Inter). Backend em FastAPI coleta dados via SSH de bancos Firebird e SQL Server, faz ETL para Parquet local e expõe KPIs, funil por fase com drill-down de abandono e evolução mensal.",
@@ -386,6 +385,10 @@ export const messages: Record<Locale, Messages> = {
           languages:    "Verfügbare Sprachen",
         },
       },
+      royalprime: {
+        subtitle: "E-Commerce, Abonnements und Betrieb",
+        description: "E-Commerce-Produkt für Katalog, Abonnements, Checkout, Bestellungen, Lagerbestand, Lieferung und Administration.",
+      },
       prognum: {
         description: "Verbesserungen am Frontend der Unternehmenswebapp für Immobilienkredit-Simulationen und Angebotsverfolgung — sowie ein internes Pipeline-Metriken-Dashboard (C6, Inter). FastAPI-Backend holt Daten per SSH aus Firebird- und SQL-Server-Datenbanken, führt ETL in ein Parquet-Warehouse durch und liefert KPIs, Phasentrichter mit Abbruch-Drill-down und Monatsverläufe.",
       },
@@ -490,6 +493,10 @@ export const messages: Record<Locale, Messages> = {
           stack:        "Stack Completo",
           languages:    "Idiomas Disponibles",
         },
+      },
+      royalprime: {
+        subtitle: "Comercio electrónico, suscripciones y operaciones",
+        description: "Producto de comercio electrónico que reúne catálogo, suscripciones, checkout, pedidos, inventario, entregas y operaciones administrativas.",
       },
       prognum: {
         description: "Mejoras en el frontend web de la empresa para simulación y consulta de propuestas de crédito hipotecario — y dashboard interno de métricas del pipeline (C6, Inter). Backend FastAPI extrae datos vía SSH de Firebird y SQL Server, ejecuta ETL a Parquet local y expõe KPIs, embudo por fase con drill-down de abandono y evolución mensual.",

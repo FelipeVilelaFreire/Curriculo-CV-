@@ -356,9 +356,6 @@ export default function CVDocument({ t, photoUrl, baseUrl }: Props) {
                       hobbymap.com.br
                     </Link>
                     <Text style={[s.projBadge, { color: C.green,  backgroundColor: C.greenBg  }]}>Live</Text>
-                    <Text style={[s.projBadge, { color: C.orange, backgroundColor: C.orangeBg }]}>
-                      {t.projects.builtWith} {hobbymap.builtWith}
-                    </Text>
                   </View>
                 </View>
                 <Text style={s.projStack}>{hobbymap.stack.join(" · ")}</Text>
@@ -371,9 +368,6 @@ export default function CVDocument({ t, photoUrl, baseUrl }: Props) {
                   <Link src={synrax.url} style={s.projName}>Synrax</Link>
                   <View style={s.projBadges}>
                     <Text style={[s.projBadge, { color: C.orange, backgroundColor: C.orangeBg }]}>SaaS / B2B</Text>
-                    <Text style={[s.projBadge, { color: C.orange, backgroundColor: C.orangeBg }]}>
-                      {t.projects.builtWith} {synrax.builtWith}
-                    </Text>
                   </View>
                 </View>
                 <Text style={s.projStack}>{synrax.stack.join(" · ")}</Text>
