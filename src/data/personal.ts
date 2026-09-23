@@ -8,6 +8,7 @@ export const personal = {
 } as const;
 
 export const companies = {
+  hka:          "Hochschule Karlsruhe (HKA)",
   prognum:      "Prognum",
   uff:          "Universidade Federal Fluminense (UFF)",
   santo_inacio: "Colégio Santo Inácio",
@@ -30,7 +31,8 @@ export const hobbyTags = {
 export const volunteerOrg = "Jovens da Paz" as const;
 
 export const timelineItems: { key: keyof typeof companies; current: boolean }[] = [
-  { key: "prognum",      current: true  },
+  { key: "hka",          current: true  },
+  { key: "prognum",      current: false },
   { key: "uff",          current: true  },
   { key: "santo_inacio", current: false },
   { key: "escola",       current: false },

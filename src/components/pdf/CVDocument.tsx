@@ -199,6 +199,7 @@ const PDF_SKILLS = SKILL_GROUPS;
 
 // Real pixel dimensions of each logo (w × h)
 const LOGO_ASPECT: Record<string, number> = {
+  hka:          220 / 80,
   prognum:      249 / 56,   // 4.45 — wide wordmark
   uff:          289 / 296,  // 0.98 — roughly square
   santo_inacio: 200 / 200,  // 1.00 — square
@@ -219,6 +220,7 @@ interface Props { t: Messages; photoUrl: string; baseUrl: string }
 
 export default function CVDocument({ t, photoUrl, baseUrl }: Props) {
   const logos: Record<string, string> = {
+    hka:          `${baseUrl}/logos/hka.svg`,
     prognum:      `${baseUrl}/logos/Prognum.png`,
     uff:          `${baseUrl}/logos/uff.png`,
     santo_inacio: `${baseUrl}/logos/santoinacio.png`,
@@ -274,7 +276,7 @@ export default function CVDocument({ t, photoUrl, baseUrl }: Props) {
           {/* Left 60% — Experience & Education */}
           <View style={s.colExp}>
             <Text style={[s.secTitle, s.secFirst]}>{t.sections.experience.toUpperCase()}</Text>
-            {(["prognum", "uff", "santo_inacio", "escola"] as const).map(key => {
+            {(["hka", "prognum", "uff", "santo_inacio", "escola"] as const).map(key => {
               const item = t.timeline.items[key];
               const sz   = logoSize(key);
               return (

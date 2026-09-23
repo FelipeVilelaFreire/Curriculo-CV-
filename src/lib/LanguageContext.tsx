@@ -52,6 +52,7 @@ export interface Messages {
   timeline: {
     present: string;
     items: {
+      hka: { role: string; period: string; description: string };
       prognum: { role: string; period: string; description: string };
       uff:     { role: string; period: string; description: string };
       escola:       { role: string; period: string; description: string };
@@ -67,6 +68,7 @@ export interface Messages {
     detailsLabel?: string;
     closeDetails?: string;
     intro?: string;
+    githubLabel: string;
     status?: { live: string; inProgress: string };
     hobbymap: ProjectCaseMessages;
     royalprime: ProjectCaseMessages;
@@ -115,9 +117,14 @@ export const messages: Record<Locale, Messages> = {
     timeline: {
       present: "Present",
       items: {
+        hka: {
+          role:        "Exchange student · Information Systems",
+          period:      "September 2026 — Present",
+          description: "Academic exchange in Information Systems at Hochschule Karlsruhe, complementing my degree at UFF.",
+        },
         prognum: {
           role:        "Front-end Intern",
-          period:      "August 2025 — Present",
+          period:      "August 2025 — August 2026",
           description: "Front-end development in React + TypeScript for enterprise financial software, with internal API consumption and Python scripts for data extraction and processing.",
         },
         uff: {
@@ -144,6 +151,7 @@ export const messages: Record<Locale, Messages> = {
       viewDetails: "View case study",
       detailsLabel: "case study",
       closeDetails: "Close project details",
+      githubLabel: "GitHub",
       intro: "Selected products that demonstrate how I approach real workflows across frontend, backend, data, and operations.",
       status: { live: "Live", inProgress: "In development" },
       hobbymap: {
@@ -219,9 +227,14 @@ export const messages: Record<Locale, Messages> = {
     timeline: {
       present: "Presente",
       items: {
+        hka: {
+          role:        "Intercâmbio acadêmico · Sistemas de Informação",
+          period:      "Setembro 2026 — Presente",
+          description: "Intercâmbio acadêmico em Sistemas de Informação na Hochschule Karlsruhe, complementando a formação na UFF.",
+        },
         prognum: {
           role:        "Estagiário Front-end",
-          period:      "Agosto 2025 — Presente",
+          period:      "Agosto 2025 — Agosto 2026",
           description: "Desenvolvimento front-end em React + TypeScript para software financeiro empresarial, com consumo de APIs internas e scripts Python para extração e processamento de dados.",
         },
         uff: {
@@ -246,6 +259,7 @@ export const messages: Record<Locale, Messages> = {
       professional: "Profissional",
       personal:     "Pessoal",
       viewDetails:  "Detalhes",
+      githubLabel: "GitHub",
       builtWith:    "Feito com",
       synrax: {
         subtitle:         "Plataforma SaaS de Recuperação de Receita & Automação",
@@ -328,9 +342,14 @@ export const messages: Record<Locale, Messages> = {
     timeline: {
       present: "Aktuell",
       items: {
+        hka: {
+          role:        "Austauschstudent · Informationssysteme",
+          period:      "September 2026 — Aktuell",
+          description: "Akademischer Austausch in Informationssystemen an der Hochschule Karlsruhe als Ergänzung zum Studium an der UFF.",
+        },
         prognum: {
           role:        "Front-end Praktikant",
-          period:      "August 2025 — Heute",
+          period:      "August 2025 — August 2026",
           description: "Frontend-Entwicklung in React + TypeScript für Finanz-Unternehmenssoftware, mit internem API-Konsum und Python-Skripten zur Datenextraktion und -verarbeitung.",
         },
         uff: {
@@ -355,6 +374,7 @@ export const messages: Record<Locale, Messages> = {
       professional: "Beruflich",
       personal:     "Persönlich",
       viewDetails:  "Details",
+      githubLabel: "GitHub",
       builtWith:    "Gebaut mit",
       synrax: {
         subtitle:         "SaaS-Plattform für Umsatzzurückgewinnung & Automatisierung",
@@ -437,9 +457,14 @@ export const messages: Record<Locale, Messages> = {
     timeline: {
       present: "Presente",
       items: {
+        hka: {
+          role:        "Estudiante de intercambio · Sistemas de Información",
+          period:      "Septiembre 2026 — Presente",
+          description: "Intercambio académico en Sistemas de Información en la Hochschule Karlsruhe, complementando la carrera en la UFF.",
+        },
         prognum: {
           role:        "Pasante Front-end",
-          period:      "Agosto 2025 — Presente",
+          period:      "Agosto 2025 — Agosto 2026",
           description: "Desarrollo front-end en React + TypeScript para software financiero empresarial, con consumo de APIs internas y scripts Python para extracción y procesamiento de dados.",
         },
         uff: {
@@ -464,6 +489,7 @@ export const messages: Record<Locale, Messages> = {
       professional: "Profesional",
       personal:     "Personal",
       viewDetails:  "Detalles",
+      githubLabel: "GitHub",
       builtWith:    "Construido con",
       synrax: {
         subtitle:         "Plataforma SaaS de Recuperación de Ingresos y Automatización",

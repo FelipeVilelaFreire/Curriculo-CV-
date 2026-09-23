@@ -1,4 +1,5 @@
 export const logos: Record<string, string> = {
+  hka:          "/logos/hka.svg",
   uff:          "/logos/uff.png",
   escola:       "/logos/saobento.png",
   prognum:      "/logos/prognum.webp",

@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 80" role="img" aria-label="HKA">
+  <rect width="220" height="80" rx="12" fill="#e30613"/>
+  <path fill="#fff" d="M24 20h9v15h13V20h9v40h-9V44H33v16h-9V20Zm43 0h9v16l13-16h11L84 39l18 21H90L76 43l-9 10v7h-9V20Zm48 40 14-40h11l14 40h-10l-3-9h-14l-3 9h-10Zm19-18-4-13-5 13h9Zm20-22h9l17 24V20h9v40h-9l-17-24v24h-9V20Z"/>
+</svg>

@@ -5,10 +5,37 @@ import { createPortal } from "react-dom";
 import { AnimatePresence, motion, useInView } from "framer-motion";
 import { ArrowUpRight, ExternalLink, Globe, LayoutDashboard, Package, Server, Smartphone, X } from "lucide-react";
 import GlassCard from "@/components/ui/GlassCard";
+import { GitHubIcon } from "@/components/ui/SocialIcons";
 import { useLanguage } from "@/lib/LanguageContext";
 import { hobbymap, portfolioProjects, type PortfolioProject, type ProjectKey } from "@/data/projects";
 
 const PLATFORM_ICONS = [Globe, Smartphone, LayoutDashboard, Server] as const;
+const ACCENT_STYLES = {
+  hobbymap: {
+    banner: "from-violet-500/[0.16] via-cyan-500/[0.10] to-blue-600/[0.10] dark:from-violet-500/[0.30] dark:via-cyan-500/[0.16] dark:to-blue-900/[0.30]",
+    title: "text-violet-700 dark:text-violet-300",
+    border: "dark:border-violet-400/[0.28]",
+    link: "text-cyan-700 hover:text-cyan-800 dark:text-cyan-400 dark:hover:text-cyan-300",
+  },
+  royalprime: {
+    banner: "from-amber-400/[0.20] via-yellow-500/[0.10] to-zinc-950/[0.14] dark:from-amber-400/[0.25] dark:via-yellow-500/[0.14] dark:to-black/[0.42]",
+    title: "text-amber-700 dark:text-amber-300",
+    border: "dark:border-amber-400/[0.28]",
+    link: "text-amber-700 hover:text-amber-800 dark:text-amber-300 dark:hover:text-amber-200",
+  },
+  synrax: {
+    banner: "from-yellow-500/[0.18] via-amber-500/[0.10] to-stone-900/[0.12] dark:from-yellow-400/[0.27] dark:via-amber-500/[0.14] dark:to-stone-950/[0.34]",
+    title: "text-yellow-700 dark:text-yellow-300",
+    border: "dark:border-yellow-400/[0.26]",
+    link: "text-yellow-700 hover:text-yellow-800 dark:text-yellow-300 dark:hover:text-yellow-200",
+  },
+  sonho: {
+    banner: "from-[#C8B091]/[0.42] via-[#A88B65]/[0.18] to-[#2B2118]/[0.10] dark:from-[#C8B091]/[0.28] dark:via-[#A88B65]/[0.20] dark:to-[#2B2118]/[0.42]",
+    title: "text-[#7A6B5C] dark:text-[#E4D5C1]",
+    border: "dark:border-[#C8B091]/[0.30]",
+    link: "text-[#7A6B5C] hover:text-[#5F5145] dark:text-[#E4D5C1] dark:hover:text-[#F4E9D4]",
+  },
+} as const;
 
 function Tag({ children }: { children: string }) {
   return <span className="px-2.5 py-1 rounded-lg bg-zinc-100 border border-zinc-200 text-zinc-600 dark:bg-white/[0.06] dark:border-white/[0.15] dark:text-zinc-200 text-xs transition-colors duration-300">{children}</span>;
@@ -26,23 +53,22 @@ function ProjectCard({ project, featured, onOpen }: { project: PortfolioProject;
   const { t } = useLanguage();
   const copy = t.projects[project.key];
   const visibleStack = featured ? project.stack : project.stack.slice(0, 4);
+  const accent = ACCENT_STYLES[project.accent];
 
   return (
-    <GlassCard className={`h-full flex flex-col ${featured ? "p-0 overflow-hidden" : "p-6"}`}>
-      {featured && (
-        <div className="relative w-full h-28 sm:h-40 overflow-hidden bg-gradient-to-br from-violet-500/[0.16] via-cyan-500/[0.10] to-blue-600/[0.10] dark:from-violet-500/[0.30] dark:via-cyan-500/[0.16] dark:to-blue-900/[0.30]">
+    <GlassCard className={`h-full flex flex-col p-0 overflow-hidden ${accent.border}`}>
+      <div className={`relative w-full ${featured ? "h-28 sm:h-40" : "h-24"} overflow-hidden bg-gradient-to-br ${accent.banner}`}>
           <div className="absolute inset-0 flex items-center justify-center gap-5 opacity-30 dark:opacity-50">
             {project.platforms.map(({ label }) => <span key={label} className="text-[10px] font-bold tracking-[0.18em] uppercase text-zinc-600 dark:text-white">{label}</span>)}
           </div>
-          <span className="absolute bottom-4 left-6 text-[9px] font-bold tracking-[0.2em] uppercase text-zinc-400 dark:text-white/40">{hobbymap.url?.replace("https://", "")}</span>
-        </div>
-      )}
+          <span className="absolute bottom-4 left-6 text-[9px] font-bold tracking-[0.2em] uppercase text-zinc-400 dark:text-white/40">{project.url?.replace("https://", "") ?? project.github?.replace("https://github.com/", "github.com/")}</span>
+      </div>
 
-      <div className={featured ? "p-5 sm:p-8 flex flex-col flex-1" : "flex flex-col flex-1"}>
+      <div className={`${featured ? "p-5 sm:p-8" : "p-5"} flex flex-col flex-1`}>
         <div className="flex flex-wrap items-center gap-2 mb-3">
-          <h3 className={`${featured ? "text-2xl" : "text-lg"} text-zinc-900 dark:text-white font-bold tracking-tight transition-colors duration-300`}>{project.name}</h3>
+          <h3 className={`${featured ? "text-2xl" : "text-lg"} ${accent.title} font-bold tracking-tight transition-colors duration-300`}>{project.name}</h3>
           {featured && <span className="px-2.5 py-0.5 rounded-full bg-cyan-100 border border-cyan-300/70 text-cyan-700 dark:bg-cyan-500/10 dark:border-cyan-500/30 dark:text-cyan-400 text-xs transition-colors duration-300">{t.projects.featured}</span>}
-          <span className="px-2.5 py-0.5 rounded-full bg-zinc-100 border border-zinc-300/70 text-zinc-600 dark:bg-white/[0.06] dark:border-white/[0.15] dark:text-zinc-300 text-[10px] font-semibold transition-colors duration-300">{project.status === "live" ? (t.projects.status?.live ?? "Live") : (t.projects.status?.inProgress ?? "In development")}</span>
+          {project.status === "live" && <span className="px-2.5 py-0.5 rounded-full bg-zinc-100 border border-zinc-300/70 text-zinc-600 dark:bg-white/[0.06] dark:border-white/[0.15] dark:text-zinc-300 text-[10px] font-semibold transition-colors duration-300">{t.projects.status?.live ?? "Live"}</span>}
         </div>
         <p className="text-zinc-500 dark:text-zinc-300 text-sm leading-relaxed flex-1 transition-colors duration-300">{copy.description}</p>
         <div className="flex flex-wrap gap-1.5 mt-5">{visibleStack.map((tech) => featured ? <Tag key={tech}>{tech}</Tag> : <SmallTag key={tech}>{tech}</SmallTag>)}</div>
@@ -51,12 +77,13 @@ function ProjectCard({ project, featured, onOpen }: { project: PortfolioProject;
             {t.projects.viewDetails}
             <ArrowUpRight size={14} />
           </button>
-          {(project.url || project.github) && (
-            <a href={project.url ?? project.github} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-sm font-medium text-cyan-700 hover:text-cyan-800 dark:text-cyan-400 dark:hover:text-cyan-300 transition-colors duration-300">
+          {project.url && (
+            <a href={project.url} target="_blank" rel="noopener noreferrer" className={`inline-flex items-center gap-1.5 text-sm font-medium transition-colors duration-300 ${accent.link}`}>
               <ExternalLink size={14} />
               {copy.cta ?? t.projects.viewDetails}
             </a>
           )}
+          {project.github && <a href={project.github} target="_blank" rel="noopener noreferrer" className={`inline-flex items-center gap-1.5 text-sm font-medium transition-colors duration-300 ${accent.link}`}><GitHubIcon size={14} />{t.projects.githubLabel}</a>}
         </div>
       </div>
     </GlassCard>
@@ -100,7 +127,7 @@ function ProjectDetailsModal({ project, onClose }: { project: PortfolioProject; 
           </div>
         </div>
 
-        {(project.url || project.github) && <div className="flex-shrink-0 px-4 sm:px-6 py-3 sm:py-4 border-t border-black/[0.06] dark:border-white/[0.08]"><a href={project.url ?? project.github} target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl font-medium text-sm transition-all duration-300 bg-cyan-50 border border-cyan-300/70 text-cyan-700 hover:bg-cyan-100 dark:bg-cyan-500/[0.10] dark:border-cyan-500/30 dark:text-cyan-400 dark:hover:bg-cyan-500/[0.18]"><ExternalLink size={14} />{copy.cta ?? t.projects.viewDetails}</a></div>}
+        {(project.url || project.github) && <div className="flex flex-wrap gap-3 flex-shrink-0 px-4 sm:px-6 py-3 sm:py-4 border-t border-black/[0.06] dark:border-white/[0.08]">{project.url && <a href={project.url} target="_blank" rel="noopener noreferrer" className="flex-1 min-w-40 flex items-center justify-center gap-2 py-2.5 rounded-xl font-medium text-sm transition-all duration-300 bg-cyan-50 border border-cyan-300/70 text-cyan-700 hover:bg-cyan-100 dark:bg-cyan-500/[0.10] dark:border-cyan-500/30 dark:text-cyan-400 dark:hover:bg-cyan-500/[0.18]"><ExternalLink size={14} />{copy.cta ?? t.projects.viewDetails}</a>}{project.github && <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex-1 min-w-40 flex items-center justify-center gap-2 py-2.5 rounded-xl font-medium text-sm transition-all duration-300 border border-zinc-200 text-zinc-700 hover:bg-zinc-50 dark:border-white/[0.14] dark:text-zinc-200 dark:hover:bg-white/[0.06]"><GitHubIcon size={14} />{t.projects.githubLabel}</a>}</div>}
       </motion.div>
     </div>
   );
