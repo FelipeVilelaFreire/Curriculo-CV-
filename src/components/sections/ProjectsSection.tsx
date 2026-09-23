@@ -58,9 +58,6 @@ function ProjectCard({ project, featured, onOpen }: { project: PortfolioProject;
   return (
     <GlassCard className={`h-full flex flex-col p-0 overflow-hidden ${accent.border}`}>
       <div className={`relative w-full ${featured ? "h-28 sm:h-40" : "h-24"} overflow-hidden bg-gradient-to-br ${accent.banner}`}>
-          <div className="absolute inset-0 flex items-center justify-center gap-5 opacity-30 dark:opacity-50">
-            {project.platforms.map(({ label }) => <span key={label} className="text-[10px] font-bold tracking-[0.18em] uppercase text-zinc-600 dark:text-white">{label}</span>)}
-          </div>
           <span className="absolute bottom-4 left-6 text-[9px] font-bold tracking-[0.2em] uppercase text-zinc-400 dark:text-white/40">{project.url?.replace("https://", "") ?? project.github?.replace("https://github.com/", "github.com/")}</span>
       </div>
 
